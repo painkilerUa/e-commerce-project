@@ -1,0 +1,145 @@
+.wrap-choosing-car-form{
+    margin: 0 auto;
+    max-width: 1220px;
+    border: 5px solid #00bfdc;
+    border-radius: 10px;
+    padding: 20px 20px 200px;
+    h2{
+        text-align: center;
+        margin-bottom: 10px;
+        color: #153A61;
+    }
+}
+.wrap-title-tab{
+    overflow: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li{
+    float: left;
+    border: 2px solid black;
+    border-bottom: 2px solid #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-right: 10px;
+        a{
+            float: left;
+            height: 35px;
+            padding: 10px 30px;
+            text-decoration: none;
+            &:hover{
+            }
+            &:focus{
+                outline: 0;
+            }
+        }
+    }
+}
+
+.current{
+    display: block !important;
+    position: relative !important;
+    z-index: 98 !important;
+}
+
+.wrap-content-choosing-auto {
+    position: relative;
+    border-radius: 0 2px 2px 2px;
+}
+.first-tab{
+    display: none;
+    position: absolute;
+/*    width: 900px;*/
+    z-index: 98;
+    top: -2px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 2px solid #153A61;
+    border-top-left-radius: 0;
+    ul{
+        font-size: 0;
+        line-height: 0;
+        li{
+        display: inline-block;
+        width: 25%;
+        padding: 5px 20px;
+        a{
+            font-size: 18px;
+            line-height: 20px;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+            }
+        }
+    } 
+}
+
+.second-tab{
+    display: none;
+    position: absolute;
+    z-index: 99;
+    top: -2px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 2px solid #153A61;
+    ul{
+        font-size:0;
+        line-height: 0;
+        li{
+            display: inline-block;
+            vertical-align: middle;
+            width: 50%;
+            padding: 5px 20px;
+            a{
+                font-size: 18px;
+                line-height: 20px;
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+.third-tab{
+    display: none;
+    position: absolute;
+    z-index: 99;
+    top: -2px;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 2px solid #153A61;
+}
+.active-tab{
+    display: block !important;
+}
+.butt-more-manufacturers{
+    display: block;
+    text-align: center;
+    font-size: 16px;
+}
+.second-part-list-manufacturers{
+    display: none;
+}
+.butt-less-manufacturers{
+    display: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+@media screen and (max-width:1023px) {
+
+}
+@media screen and (max-width:768px) {
+    .wrap-choosing-car-form{
+        display: none;
+    }
+}
+@media screen and (max-width:480px) {
+
+}

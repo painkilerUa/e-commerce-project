@@ -1,0 +1,20 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        .wrap
+            .admin-inner-part
+                nav.top-nav-admin
+                    ul
+                        li
+                            a(href='../../orders/') Заказы
+                        li
+                            a(href='../../catalog/') Каталог
+                        li
+                            a(href='../../import/') Импорт
+                        li
+                            a(href='./') YML Export
+                .wrap-information-block-succesfull-ed-prod
+                    span Товар успешно отредактирован
+                    span Вернуться в 
+                        a(href='../../catalog/') каталог товаров

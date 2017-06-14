@@ -1,0 +1,20 @@
+.admin-inner-part{
+    max-width: 1220px;
+    margin: 0 auto;
+}
+.top-nav-admin{
+    ul{
+        display: table;
+        width: 100%;
+        border: 1px solid grey;
+        border-radius: 5px;
+        li{
+            display: table-cell;
+            text-align: center;
+            padding: 10px 20px;
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+}

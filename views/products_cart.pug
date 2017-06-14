@@ -1,0 +1,112 @@
+doctype
+html
+    include ./main/head.pug
+    body
+        .wrap
+            .w1
+                include ./main/header.pug
+                main(class='main-wrap-cart', id='main-wrap-cart')
+                    h1 Оформление заказа
+                    form(id='checkout_form' action='/cart/success/' method='post')
+                        .wrap-goods-list
+                            ul(class='goods-list', id='goods-list')
+                            .wrap-ful-cost-cart
+                                span(id='full-cost-cart')
+                        .wrap-order-form
+                            .order-form
+                                h2 Контактные данные
+                                .cart-form-row
+                                    input(
+                                        type='text'
+                                        name='last_name'
+                                        placeholder='Фамилия'
+                                        required
+                                    )
+                                .cart-form-row
+                                    input(
+                                        type='text'
+                                        name='first_name'
+                                        placeholder='Имя'
+                                        required
+                                    )
+                                .cart-form-row
+                                    input(
+                                        type='text'
+                                        name='surname_name'
+                                        placeholder='Отчество'
+                                    )
+                                .cart-form-row
+                                    input(
+                                        type='tel'
+                                        name='phone_number'
+                                        maxlength='13'
+                                        placeholder='Номер мобильного телефона'
+                                        required
+                                    )
+                                div(class='cart-form-row wrap-checkbox-pickup-from-ofice')
+                                    input(
+                                        type='checkbox'
+                                        name='is_pickup_from_ofice'
+                                        value='1'
+                                        id='checkbox-pickup-from-ofice'
+                                    ) 
+                                    label(for='checkbox-pickup-from-ofice') Самовывоз товара
+                                div(class='cart-form-row checkbox-adress-delivery')
+                                    input(
+                                        type='checkbox'
+                                        name='is_local_delivery'
+                                        value='1'
+                                        id='checkbox-adress-delivery'
+                                    ) 
+                                    label(for='checkbox-adress-delivery') Адресная доставка по г.Харькову
+                                .cart-form-row
+                                    input(
+                                        type='text'
+                                        name='adress_in_kharkiv'
+                                        placeholder='Адресс в г. Харьков'
+                                    )
+                                div(class='cart-form-row checkbox-delivery-transport-company')
+                                    input(
+                                        type='checkbox'
+                                        name='is_delivery_transport_company'
+                                        value='1'
+                                        id='checkbox-delivery-transport-company'
+                                    ) 
+                                    label(for='checkbox-delivery-transport-company') Доставка транспортной компанией по Украине
+                                .cart-form-row
+                                    input(
+                                        type='text'
+                                        name='city_name'
+                                        placeholder='Город'
+                                    )
+                                div(class='cart-form-row wrap-choosing-transport-company')
+                                    select(
+                                        name='carrier'
+                                    )
+                                        option(value='Новая Почта') Новая Почта
+                                        option(value='Интайм') Интайм
+                                        option(value='Деливери') Деливери
+                                        option(value='Другой') Согласовать
+                                    input(
+                                        type='text'
+                                        name='carrier_num_office'
+                                        placeholder='№'
+                                    )
+                                div(class='cart-form-row wrap-comments-order-form')
+                                    textarea(
+                                    name='comment'
+                                    rows='5'
+                                    maxlength='400'
+                                    style='resize: none'
+                                    placeholder='Комментарий ...'
+                                    )
+                                    input(
+                                        type='hidden'
+                                        name='ordered_products'
+                                        value=''
+                                        id='ordered-products'
+                                    )
+                        .wrap-button-make-order
+                            button(type='submit', class='make-order', id='make-order') Оформить заказ
+            include ./main/footer.pug
+        script(type='text/javascript', src='/static/js/cart.js')

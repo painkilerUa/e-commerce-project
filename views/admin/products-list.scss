@@ -1,0 +1,20 @@
+.products-table-catalog{
+    width: 100%;
+    tr:first-child{
+        background-color: #f5f3f3;
+        text-align: center;
+    }
+    td{
+        padding: 5px 10px;
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+.products-table-catalog-name{
+    text-align: left !important;
+}

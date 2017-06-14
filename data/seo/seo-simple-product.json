@@ -1,0 +1,454 @@
+[
+  {
+    "url": "/catalog/maslyanii-filtr/",
+    "main_text": {
+        "h1": "Масляные фильтры",
+        "title": "Масляные фильтры"
+      },
+    "sub_category":
+      [
+        {
+          "param": "bosch",
+          "data": {
+            "h1": "Масляные фильтры Bosch",
+            "title": "Масляные фильтры Bosch"
+          }
+        }
+      ]
+  },
+  {
+    "url": "/catalog/vozdyshnii-filtr/",
+    "main_text": {
+      "h1": "Воздушные фильтры",
+      "title": "Воздушные фильтры"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Воздушные фильтры Bosch",
+          "title": "Воздушные фильтры Bosch"
+        }
+      },
+      {
+        "param": "mann",
+        "data": {
+          "h1": "Воздушные фильтры Mann",
+          "title": "Воздушные фильтры Mann"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/toplivnii-filtr/",
+    "main_text": {
+      "h1": "Топливные фильтры",
+      "title": "Топливные фильтры"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Топливные фильтры Bosch",
+          "title": "Топливные фильтры Bosch"
+        }
+      },
+      {
+        "param": "mann",
+        "data": {
+          "h1": "Топливные фильтры Mann",
+          "title": "Топливные фильтры Mann"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/filtr-salona/",
+    "main_text": {
+      "h1": "Фильтры салона",
+      "title": "Фильтры салона"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Фильтры салона Bosch",
+          "title": "Фильтры салона Bosch"
+        }
+      },
+      {
+        "param": "mann",
+        "data": {
+          "h1": "Фильтры салона Mann",
+          "title": "Фильтры салона Mann"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/remen-grm/",
+    "main_text": {
+      "h1": "Ремни ГРМ",
+      "title": "Ремни ГРМ"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Ремни ГРМ Bosch",
+          "title": "Ремни ГРМ Bosch"
+        }
+      },
+      {
+        "param": "contitech",
+        "data": {
+          "h1": "Ремни ГРМ Contitech",
+          "title": "Ремни ГРМ Contitech"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/remen-generatora/",
+    "main_text": {
+      "h1": "Ремни генератора",
+      "title": "Ремни генератора"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Ремни генератора Bosch",
+          "title": "Ремни генератора Bosch"
+        }
+      },
+      {
+        "param": "contitech",
+        "data": {
+          "h1": "Ремни генератора Contitech",
+          "title": "Ремни генератора Contitech"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/bolt-golovki-bloka-cilindrov/",
+    "main_text": {
+      "h1": "Болты ГБЦ",
+      "title": "Болты ГБЦ"
+    },
+    "sub_category":
+    [
+      {
+        "param": "febi",
+        "data": {
+          "h1": "Болты ГБЦ Febi Bilstein",
+          "title": "Болты ГБЦ Febi Bilstein"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/tormoznoy-disk/",
+    "main_text": {
+      "h1": "Тормозные диски",
+      "title": "Тормозные диски"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Тормозные диски Bosch",
+          "title": "Тормозные диски Bosch"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/tormoznyie-kolodki/",
+    "main_text": {
+      "h1": "Тормозные колодки",
+      "title": "Тормозные колодки"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Тормозные колодки Bosch",
+          "title": "Тормозные колодки Bosch"
+        }
+      },
+      {
+        "param": "trw",
+        "data": {
+          "h1": "Тормозные колодки TRW",
+          "title": "Тормозные колодки TRW"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/tormoznyie-kolodki-baraban/",
+    "main_text": {
+      "h1": "Тормозные колодки барабанные",
+      "title": "Тормозные колодки барабанные"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Тормозные колодки барабанные Bosch",
+          "title": "Тормозные колодки барабанные Bosch"
+        }
+      },
+      {
+        "param": "trw",
+        "data": {
+          "h1": "Тормозные колодки барабанные TRW",
+          "title": "Тормозные колодки барабанные TRW"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/rabochii-tormoznoi-cilindr/",
+    "main_text": {
+      "h1": "Рабочий тормозной цилиндр",
+      "title": "Рабочий тормозной цилиндр"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Рабочий тормозной цилиндр Bosch",
+          "title": "Рабочий тормозной цилиндр Bosch"
+        }
+      },
+      {
+        "param": "mobis",
+        "data": {
+          "h1": "Рабочий тормозной цилиндр Mobis",
+          "title": "Рабочий тормозной цилиндр Mobis"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/glavnii-tormoznoi-cilindr/",
+    "main_text": {
+      "h1": "Главный тормозной цилиндр",
+      "title": "Главный тормозной цилиндр"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Главный тормозной цилиндр Bosch",
+          "title": "Главный тормозной цилиндр Bosch"
+        }
+      },
+      {
+        "param": "mobis",
+        "data": {
+          "h1": "Главный тормозной цилиндр Mobis",
+          "title": "Главный тормозной цилиндр Mobis"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/amortizator/",
+    "main_text": {
+      "h1": "Амортизаторы",
+      "title": "Амортизаторы"
+    },
+    "sub_category":
+    [
+      {
+        "param": "mando",
+        "data": {
+          "h1": "Амортизаторы Mando",
+          "title": "Амортизаторы Mando"
+        }
+      },
+      {
+        "param": "mobis",
+        "data": {
+          "h1": "Амортизаторы Mobis",
+          "title": "Амортизаторы Mobis"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/sharovaya-opora/",
+    "main_text": {
+      "h1": "Шаровые опоры",
+      "title": "Шаровые опоры"
+    },
+    "sub_category":
+    [
+      {
+        "param": "mando",
+        "data": {
+          "h1": "Шаровые опоры Lemforder",
+          "title": "Шаровые опоры Lemforder"
+        }
+      },
+      {
+        "param": "mobis",
+        "data": {
+          "h1": "Шаровые опоры Parts Mall",
+          "title": "Шаровые опоры Parts Mall"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/pyilnik-amortizatora/",
+    "main_text": {
+      "h1": "Пыльники амортизаторов",
+      "title": "Пыльники амортизаторов"
+    },
+    "sub_category":
+    [
+      {
+        "param": "mobis",
+        "data": {
+          "h1": "Пыльники амортизаторов Mobis",
+          "title": "Пыльники амортизаторов Mobis"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/saylentblok-ryichaga/",
+    "main_text": {
+      "h1": "Сайлентблоки рычага",
+      "title": "Сайлентблоки рычага"
+    },
+    "sub_category":
+    [
+      {
+        "param": "ctr",
+        "data": {
+          "h1": "Сайлентблоки рычага CTR",
+          "title": "Сайлентблоки рычага CTR"
+        }
+      },
+      {
+        "param": "lemforder",
+        "data": {
+          "h1": "Сайлентблоки рычага Lemforder",
+          "title": "Сайлентблоки рычага Parts Mall"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/komplekt-scepleniya/",
+    "main_text": {
+      "h1": "Комплекты сцепления",
+      "title": "Комплекты сцепления"
+    },
+    "sub_category":
+    [
+      {
+        "param": "aisin",
+        "data": {
+          "h1": "Комплекты сцепления AISIN",
+          "title": "Комплекты сцепления AISIN"
+        }
+      },
+      {
+        "param": "luk",
+        "data": {
+          "h1": "Комплекты сцепления LUK",
+          "title": "Комплекты сцепления LUK"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/shrys/",
+    "main_text": {
+      "h1": "ШРУСы",
+      "title": "ШРУСы"
+    },
+    "sub_category":
+    [
+      {
+        "param": "cifam",
+        "data": {
+          "h1": "ШРУСы Cifam",
+          "title": "ШРУСы Cifam"
+        }
+      },
+      {
+        "param": "rider",
+        "data": {
+          "h1": "ШРУСы Rider",
+          "title": "ШРУСы Rider"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/polyos/",
+    "main_text": {
+      "h1": "Полуоси",
+      "title": "Полуоси"
+    },
+    "sub_category":
+    [
+      {
+        "param": "cifam",
+        "data": {
+          "h1": "Полуоси Cifam",
+          "title": "Полуоси Cifam"
+        }
+      },
+      {
+        "param": "mobis",
+        "data": {
+          "h1": "Полуоси Mobis",
+          "title": "Полуоси Mobis"
+        }
+      }
+    ]
+  },
+  {
+    "url": "/catalog/termostat/",
+    "main_text": {
+      "h1": "Термостаты",
+      "title": "Термостаты"
+    },
+    "sub_category":
+    [
+      {
+        "param": "ashika",
+        "data": {
+          "h1": "Термостаты Ashika",
+          "title": "Термостаты Ashika"
+        }
+      },
+      {
+        "param": "vernet",
+        "data": {
+          "h1": "Термостаты Vernet",
+          "title": "Термостаты Vernet"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,195 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        .wrap
+            .admin-inner-part
+                nav.top-nav-admin
+                    ul
+                        li
+                            a(href='../orders/') Заказы
+                        li
+                            a(href='./') Каталог
+                        li
+                            a(href='../import/') Импорт
+                        li
+                            a(href='./') YML Export
+                h2 Информация о товаре
+                .wrap-edit-product-form
+                    form(action='./edit', method='post')
+                        .row-edit-product-form
+                            label(
+                                for='input-name-product-form'
+                            ) Наименование товара
+                            input(
+                                id='input-name-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='name'
+                                value= product.name
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-short_description-product-form'
+                            ) Краткое описание
+                            textarea(
+                                id='input-short_description-product-form'
+                                class='input-product-form'
+                                name='short_description'
+                                rows=5
+                            )= product.short_description
+                        .row-edit-product-form
+                            label(
+                                for='input-description-product-form'
+                            ) Полное описание
+                            textarea(
+                                id='input-description-product-form'
+                                class='input-product-form'
+                                name='description'
+                                rows=5
+                            )= product.description
+                        .row-edit-product-form
+                            label(
+                                for='input-price-product-form'
+                            ) Цена, грн
+                            input(
+                                id='input-price-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='price'
+                                value= product.price
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-product-url-product-form'
+                            ) Адресс товара
+                            input(
+                                id='input-product-url-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='product_url'
+                                value= product.product_url
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-img-url-product-form'
+                            ) Адресс картинки
+                            input(
+                                id='input-img-url-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='img_url'
+                                value= product.img_url
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-quantity-product-form'
+                            ) Колличество, шт
+                            input(
+                                id='input-quantity-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='quantity'
+                                value= product.quantity
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-vendor-product-form'
+                            ) Артикул, шт
+                            input(
+                                id='input-vendor-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='vendor'
+                                value= product.vendor
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-category-id-product-form'
+                            ) Категория
+                            input(
+                                id='input-category-id-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='category_id'
+                                value= product.category_id
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-attr-type-product-form'
+                            ) Атрибут(тип масла)
+                            input(
+                                id='input-attr-type-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='attr_type'
+                                value= product.attr_type
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-attr-manufacturer-product-form'
+                            ) Атрибут(производитель)
+                            input(
+                                id='input-attr-manufacturer-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='attr_manufacturer'
+                                value= product.attr_manufacturer
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-attr-vid-product-form'
+                            ) Атрибут(вид)
+                            input(
+                                id='input-attr-vid-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='attr_vid'
+                                value= product.attr_vid
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-attr-sae-product-form'
+                            ) Атрибут(вязкость)
+                            input(
+                                id='input-attr-sae-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='attr_sae'
+                                value= product.attr_sae
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-attr-capacity-product-form'
+                            ) Атрибут(вязкость)
+                            input(
+                                id='input-attr-capacity-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='attr_capacity'
+                                value= product.attr_capacity
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-attr-color-product-form'
+                            ) Атрибут(цвет)
+                            input(
+                                id='input-attr-color-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='attr_color'
+                                value= product.attr_color
+                            )
+                        .row-edit-product-form
+                            label(
+                                for='input-attr-antifreeze-class-product-form'
+                            ) Атрибут(класс антифриза)
+                            input(
+                                id='input-attr-antifreeze-class-product-form'
+                                class='input-product-form'
+                                type='text'
+                                name='attr_antifreeze_class'
+                                value= product.attr_antifreeze_class
+                            )
+                        .wrap-button-confirm-edit-product-form
+                            button(class='button-confirm-edit-product-form button-add-to-cart', type='submit') Сохранить

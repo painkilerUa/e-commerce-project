@@ -1,0 +1,16 @@
+doctype
+html
+    include main/head.pug
+    body
+        .wrap
+            .w1
+                include main/header.pug
+                main.main
+                    .wrap-error-404
+                        h1 404
+                        h2 Страница не найдена
+                        img(src='/static/images/frontend/404.png')
+                        span Вы можете перейти на <a href='/'>главную страницу</a>
+                        span или воспользоваться поиском в заглавии сайта
+            include main/footer.pug
+        script(type='text/javascript', src='/static/js/error404.js')

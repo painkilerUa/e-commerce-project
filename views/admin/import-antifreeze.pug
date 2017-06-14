@@ -1,0 +1,26 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        .wrap
+            .admin-inner-part
+                nav.top-nav-admin
+                    ul
+                        li
+                            a(href='./orders/') Заказы
+                        li
+                            a(href='./catalog/') Каталог
+                        li
+                            a(href='./') Импорт
+                        li
+                            a(href='./yexport/') YML Export
+                        li
+                            a(href='./general-imformation/') Информация
+                h2 Выполнить загрузку antifreeze.xls прайса ?
+                .wrap-button-download
+                    button(id="button-load-import-atifreeze") Да
+                div(id='conteiner-for-inform-atifreeze-import')
+        script(type='text/javascript', src='/static/js/admin.js')
+
+
+        

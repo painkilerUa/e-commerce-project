@@ -1,0 +1,51 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        .wrap
+            .admin-inner-part
+                nav.top-nav-admin
+                    ul
+                        li
+                            a(href='./') Кабинет
+                        li
+                            a(href='../orders/') Заказы
+                        li
+                            a(href='../catalog/') Каталог
+                        li
+                            a(href='../import/') Импорт
+                        li
+                            a(href='../yexport/') YML Export
+                        li
+                            a(href='../general-imformation/') Информация
+                h1 Кабинет
+                .wrap-search-product-cabinet
+                    .navigation-search-product-cabinet
+                        ul.block-providers
+                            li Поставщики
+                            li
+                                span 1
+                                span Бусмаркет
+                            li 
+                                span 2
+                                span Маслоточка
+                            li 
+                                span 3
+                                span Омегаавтопоставка
+                            li 
+                                span 4
+                                span МКПП
+                        span Поиск по названию
+                        .wrap-input-name-cabinet
+                            input(
+                                type='text'
+                                id='input-name-cabinet'
+                            )
+                        span Поиск по артикулу
+                        .wrap-input-vendor-cabinet
+                            input(
+                                type='text'
+                                id='input-vendor-cabinet'
+                            )
+                    div(class='search-product-cabinet' id='search-product-cabinet')
+        script(type='text/javascript', src='/static/js/admin.js')

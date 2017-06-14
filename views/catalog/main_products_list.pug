@@ -1,0 +1,76 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        include ../main/popups.pug
+        .wrap
+            .w1
+                include ../main/header.pug
+                main.main-products-catalog
+                    h1= seo.h1
+                    .wrap-filter-main-products
+                        h3 Параметры товара
+                        aside.filter-main-products
+                            -if(selectedAttr.length > 0){
+                                .row-clear-main-products-filter
+                                    a(
+                                    class='clear-product-filter'
+                                    rel="nofollow"
+                                    href= filterElements.main_url
+                                    ) убрать все фильтры
+                            -}
+                            span Производитель
+                            -for(var i = 0; i < filterElements.attr_manufacturer.length; i++){
+                                -for(var key in filterElements.attr_manufacturer[i]){
+                                    .row-filter-main-products
+                                        input(
+                                            type='checkbox',
+                                            checked= filterElements.attr_manufacturer[i]['isChecked']
+                                        )
+                                        a(
+                                            class='link-avtomobilnye-masla'
+                                            data-href= key
+                                            data-checked= filterElements.attr_manufacturer[i]['isChecked']
+                                            rel="nofollow"
+                                            href='/'
+                                        )= filterElements.attr_manufacturer[i][key]
+                                    -break;
+                                -}
+                            -}
+                    .wrap-main-products-list
+                        -for(var i = 0; i < products.length; i++){
+                            div(class='main-product-cell')
+                                .wrap-main-product-image
+                                    a(href= '/products/' + products[i].product_url)
+                                        img(src= products[i].img_url)
+                                .wrap-desc-main-product
+                                    h2
+                                        a(href='/products/' + products[i].product_url)= products[i].name
+                                    span= products[i].short_description
+                                .wrap-main-product-buying-part
+                                    span= products[i].price + ' грн'
+                                    button(
+                                        class='button-add-to-cart'
+                                        data-product-id= JSON.stringify(products[i])
+                                    ) Купить 
+                        -}
+                        -if(pagesPaginator.length > 0){
+                            .main-product-catalog-pages-paginator
+                                span Страницы:
+                                ul
+                                    -for(var i = 0; i < pagesPaginator.length; i++){
+                                        -if(pagesPaginator[i]['isActive']){
+                                            li(class='selected')
+                                                a(href= pagesPaginator[i]['href'])= pagesPaginator[i]['name']
+                                        -}else{
+                                            li
+                                                a(href= pagesPaginator[i]['href'])= pagesPaginator[i]['name']
+                                        -}
+                                    -}
+                        -}
+                    .wrap-description-category-part
+                        -if(seo.text){
+                            p= seo.text
+                        -}
+            include ../main/footer.pug
+        script(type='text/javascript', src='/static/js/catalog.js')

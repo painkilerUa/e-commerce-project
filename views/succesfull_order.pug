@@ -1,0 +1,15 @@
+doctype
+html
+    include ./main/head.pug
+    body
+        .wrap
+            .w1
+                include ./main/header.pug
+                main(class='wrap-succesfull-order')
+                    span= massage
+                    span Вернуться на 
+                    a(href='/') главную
+            include ./main/footer.pug
+    -if(cleanLocalStorage){
+        script(type='text/javascript', src='/static/js/succesfull_order.js')
+    -}

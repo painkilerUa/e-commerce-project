@@ -1,0 +1,41 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        .wrap
+            .admin-inner-part
+                nav.top-nav-admin
+                    ul
+                        li
+                            a(href='../orders/') Заказы
+                        li
+                            a(href='./') Каталог
+                        li
+                            a(href='../import/') Импорт
+                        li
+                            a(href='./') YML Export
+                h2 Каталог товаров
+                table.products-table-catalog
+                    tbody
+                        tr
+                            td id
+                            td Наименование товара
+                            td Категория
+                            td Артикул
+                            td Цена
+                            td Кол-во
+                        -for(var i = 0; i < products.length; i++){
+                            tr
+                                td
+                                    a(href='./' + products[i].id + '/')= products[i].id
+                                td.products-table-catalog-name
+                                    a(href='./' + products[i].id + '/')= products[i].name
+                                td
+                                    a(href='./' + products[i].id + '/')= products[i].category_id
+                                td
+                                    a(href='./' + products[i].id + '/')= products[i].vendor
+                                td
+                                    a(href='./' + products[i].id + '/')= products[i].price
+                                td
+                                    a(href='./' + products[i].id + '/')= products[i].quantity
+                        -}

@@ -1,0 +1,5 @@
+.idea/
+node_modules/
+publick/static/catalog/*
+publick/static/images/*
+temporaryImgImport/*

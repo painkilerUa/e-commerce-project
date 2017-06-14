@@ -1,0 +1,51 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        include ../main/popups.pug
+        .wrap
+            .w1
+                include ../main/header.pug
+                main.wrap-product-card
+                    ul.breadcrumbs
+                        -for(key in breadCrumbs){
+                            -if(breadCrumbs[key] != ""){
+                                li
+                                    a(href= breadCrumbs[key])= key
+                            -}else{
+                                li= key
+                            -}
+                        -}
+                    h1= product.name
+                    .product-card
+                        .wrap-img-product-card
+                            img(src= product.img_url)
+                        .wrap-right-part-product-card
+                            .wrap-button-buy-plus-delivery
+                                .wrap-button-buy-product-card
+                                    .price-product-card
+                                        span.price= product.price
+                                        span.prefix= ' грн.'
+                                    .wrap-add-to-cart-button-product-card
+                                        buttton(
+                                        class='button-add-to-cart'
+                                        id='add-to-cart-button-product-cart'
+                                        data-product-id= JSON.stringify(product)
+                                        ) Купить
+                                //- .wrap-delivery-information-product-card
+                                    //- span.caption Варианты доставки:
+                                    //- span Курьером по Харькову
+                                    //- span Самовывоз в Харькове
+                                    //- span ул. Грековская, 6
+                                    //- span Транспортной компанией
+                                    //- span Новая Почта
+                                    //- span Интайм
+                                    //- span Деливери
+                            .wrap-social-buttons
+                                <div class="pluso" data-background="transparent" data-options="medium,square,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,google"></div>
+                            .wrap-vendor-product
+                                span= 'Артикул: ' + product.vendor
+                            .description-product !{product.description}
+            include ../main/footer.pug
+        script(type='text/javascript', src='/static/js/productCard.js')
+        script(type='text/javascript', src='/static/js/socialButtons.js')

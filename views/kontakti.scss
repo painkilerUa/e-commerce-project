@@ -1,0 +1,62 @@
+.wrap-statik-page{
+    max-width: 1220px;
+    margin: 0 auto;
+    h1{
+        font-size: 28px;
+        margin: 20px 0;
+        text-align: center;
+    }
+}
+.phone-page-kontakti{
+    text-align: center;
+    margin-bottom: 30px;
+    li{
+        margin-bottom: 10px;
+        a{
+            font-size: 22px;
+            text-decoration: none;
+        }
+    }
+}
+.general-information-page-kontakti{
+    text-align: center;
+    margin-bottom: 30px;
+    p{
+        font-size: 22px;
+        margin: 10px 0;
+    }
+    span{
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+}
+.wrap-map-page-kontakti{
+    margin-top: 20px;
+    text-align: center;
+    p{
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    span{
+        font-size: 24px;
+        color: #153a61;
+    }
+    ymaps{
+        margin-top: 10px;
+    }
+}
+.grafik-raboti-page-kontakti{
+    text-align: center;
+    margin-bottom: 30px;
+    p{
+        font-size: 22px;
+        margin-bottom: 10px;
+        span{
+            font-size: 22px;
+            &:first-child{
+                margin-right: 10px;
+                font-weight: 600;
+            }
+        }
+    }
+}

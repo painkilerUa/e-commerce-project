@@ -1,0 +1,17 @@
+doctype
+html
+    include ./main/head.pug
+    body
+        .wrap
+            .w1
+                include ./main/header.pug
+                main(class='wrap-main-search')
+                    h1 Результаты поиска
+                    span.description-main-search= 'По запросу "' + search_query + '" найдено ' + products.length  + ' соответствий'
+                    .wrap-search-result
+                        -for(var i = 0; i < products.length; i++){
+                            a(href= '/products/' + products[i].product_url)= products[i].name
+                                span= products[i].price + ' грн'
+                        -}
+            include ./main/footer.pug
+        script(type='text/javascript', src='/static/js/main_search.js')

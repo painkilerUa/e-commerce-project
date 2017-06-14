@@ -1,0 +1,55 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        include ../main/popups.pug
+        .wrap
+            .w1
+                include ../main/header.pug
+                main.wrap-simple-products-list
+                    .wrap-filter-simple-products-list
+                        h3 Параметры товара
+                        aside.filter-simple-products-list
+                            span Производитель
+                            - var productsId = '';
+                            - var allBrandsObj = {};
+                            - var filtredBrandsObj = {};
+                            -for(var i = 0; i < allProducts.length; i++){
+                            -   productsId += allProducts[i]['id'] + ',';
+                            -   allBrandsObj[allProducts[i]['attr_manufacturer']] = true;
+                            -}
+                            - var brands = Object.keys(allBrandsObj).sort();
+                            -if( 'brand' in queryParams){
+                            -       if (queryParams.brand instanceof Array){
+                            -           for(var k = 0; k < queryParams.brand.length; k++){
+                            -               filtredBrandsObj[queryParams.brand[k]] = true;
+                            -           }
+                            -       var filteredBrands = Object.keys(filtredBrandsObj).sort();
+                            -       }
+                            - else var filteredBrands = queryParams.brand;
+                            -}
+                            -else var filteredBrands = '';
+                            form(action='./sim-prod-filter', id='sim-prod-filter-form')
+                                -for(var j=0; j < brands.length; j++){
+                                .row-filter-simple-products-list
+                                -   if(filteredBrands.indexOf(brands[j]) == -1){
+                                    input(type='checkbox', id= 'brand_' + j, name='brand', value= brands[j], class='sim-prod-filter-form')
+                                    label(for= 'brand_' + j)= brands[j]
+                                -   }
+                                -   else{
+                                    input(type='checkbox', id= 'brand_' + j, name='brand', value= brands[j], class='sim-prod-filter-form', checked)
+                                    label(for= 'brand_' + j)= brands[j]
+                                -   }
+                                -}
+                                    input(type='hidden', name='products-id', value= productsId.substring(0, productsId.length - 1))
+                    .simple-products-list
+                        each val, index in filteredProd
+                            .wrap-product-in-catalog
+                                img(url='images/default.img')
+                            h2
+                                a(href='#')= val['name']
+                            span= val['price'] + ' грн.'
+                            span.button-buy-catalog Купить
+            footer.footer
+                .footer-inner
+        script(type='text/javascript', src='/static/js/catalog.js')

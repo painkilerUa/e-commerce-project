@@ -1,0 +1,32 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        .wrap
+            .admin-inner-part
+                nav.top-nav-admin
+                    ul
+                        li
+                            a(href='../cabinet/') Кабинет
+                        li
+                            a(href='./') Заказы
+                        li
+                            a(href='../catalog/') Каталог
+                        li
+                            a(href='../import/') Импорт
+                        li
+                            sa(href='./') YML Export
+                h2 Заказы
+                table.orders-table
+                    tbody
+                        -for(var i = 0; i < orders.length; i++){
+                            tr
+                                td
+                                    a(href='./' + orders[i].id)= orders[i].id
+                                td
+                                    a(href='./' + orders[i].id)= orders[i].last_name
+                                td
+                                    a(href='./' + orders[i].id)= orders[i].first_name
+                                td
+                                    a(href='./' + orders[i].id)= orders[i].surname_name
+                        -}

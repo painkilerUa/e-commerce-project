@@ -1,0 +1,22 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        .wrap
+            .admin-inner-part
+                nav.top-nav-admin
+                    ul
+                        li
+                            a(href='./orders/') Заказы
+                        li
+                            a(href='./catalog/') Каталог
+                        li
+                            a(href='../') Импорт
+                h2 Выполнить загрузку прайса ?
+                .wrap-button-download
+                    button(id="button-load-import-oil") Да
+                div(id='conteiner-for-inform-oil-import')
+        script(type='text/javascript', src='/static/js/admin.js')
+
+
+        

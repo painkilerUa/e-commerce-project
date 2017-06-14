@@ -1,0 +1,11 @@
+.orders-table{
+    width: 100%;
+    text-align: center;
+    tr:nth-child(2n){
+        background-color: #f5f3f3;
+    }
+    a{
+        text-decoration: none;
+        font-size: 18px;
+    }
+}

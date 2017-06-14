@@ -1,0 +1,15 @@
+.wrap-main-catalog{
+    max-width: 1220px;
+    margin: 0 auto;
+}
+.main-catalog{
+    font-size: 0;
+    line-height: 0;
+    & > div{
+        display: inline-block;
+        width: 33.33%;
+        vertical-align: top;
+        font-size: 16px;
+        line-height: 18px;
+    }
+}

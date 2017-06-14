@@ -1,0 +1,163 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        include ../main/popups.pug
+        .wrap
+            .w1
+                include ../main/header.pug
+                main.wrap-avtomobilnye-masla-catalog
+                    h1= seo.h1
+                    .wrap-filter-avtomobilnye-masla
+                        h3 Параметры товара
+                        aside.filter-avtomobilnye-masla
+                            .wrap-attr-oil-filter
+                                -var count = 0;
+                                -for(var key in selectedAttr) {
+                                    -if(count == 0){
+                                        .row-clear-oil-filter
+                                            a(
+                                            class='clear-product-filter'
+                                            rel="nofollow"
+                                            href='/catalog/avtomobilnye-masla/'
+                                            ) убрать все фильтры
+                                    -}
+                                    -count++
+                                -}
+                                -if(filterElements.attr_type){
+                                    span Назначение
+                                    -for(var i = 0; i < filterElements.attr_type.length; i++){
+                                        -for(var key in filterElements.attr_type[i]){
+                                            .row-attr-oil-filter
+                                                input(
+                                                    type='checkbox',
+                                                    checked= filterElements.attr_type[i]['isChecked']
+                                                )
+                                                a(
+                                                    class='link-avtomobilnye-masla'
+                                                    data-href= key
+                                                    data-checked= filterElements.attr_type[i]['isChecked']
+                                                    rel="nofollow"
+                                                    href='/'
+                                                )= filterElements.attr_type[i][key]
+                                            -break;
+                                        -}
+                                    -}
+                                -}
+                                -if(filterElements.attr_manufacturer){
+                                    span Производитель
+                                    -for(var i = 0; i < filterElements.attr_manufacturer.length; i++){
+                                        -for(var key in filterElements.attr_manufacturer[i]){
+                                            .row-attr-products-filter
+                                                input(
+                                                    type='checkbox',
+                                                    checked= filterElements.attr_manufacturer[i]['isChecked']
+                                                )
+                                                a(
+                                                    class='link-avtomobilnye-masla'
+                                                    data-href= key
+                                                    data-checked= filterElements.attr_manufacturer[i]['isChecked']
+                                                    rel="nofollow"
+                                                    href='/'
+                                                )= filterElements.attr_manufacturer[i][key]
+                                            -break;
+                                        -}
+                                    -}
+                                -}
+                                -if(filterElements.attr_sae){
+                                    span Вязкость
+                                    -for(var i = 0; i < filterElements.attr_sae.length; i++){
+                                        -for(var key in filterElements.attr_sae[i]){
+                                            .row-attr-products-filter
+                                                input(
+                                                    type='checkbox',
+                                                    checked= filterElements.attr_sae[i]['isChecked']
+                                                )
+                                                a(
+                                                    class='link-avtomobilnye-masla'
+                                                    data-href= key
+                                                    data-checked= filterElements.attr_sae[i]['isChecked']
+                                                    rel="nofollow"
+                                                    href='/'
+                                                )= filterElements.attr_sae[i][key]
+                                            -break;
+                                        -}
+                                    -}
+                                -}
+                                -if(filterElements.attr_vid){
+                                    span Тип основы
+                                    -for(var i = 0; i < filterElements.attr_vid.length; i++){
+                                        -for(var key in filterElements.attr_vid[i]){
+                                            .row-attr-products-filter
+                                                input(
+                                                    type='checkbox',
+                                                    checked= filterElements.attr_vid[i]['isChecked']
+                                                )
+                                                a(
+                                                    class='link-avtomobilnye-masla'
+                                                    data-href= key
+                                                    data-checked= filterElements.attr_vid[i]['isChecked']
+                                                    rel="nofollow"
+                                                    href='/'
+                                                )= filterElements.attr_vid[i][key]
+                                            -break;
+                                        -}
+                                    -}
+                                -}
+                                -if(filterElements.attr_capacity){
+                                    span Емкость, л
+                                    -for(var i = 0; i < filterElements.attr_capacity.length; i++){
+                                        -for(var key in filterElements.attr_capacity[i]){
+                                            .row-attr-products-filter
+                                                input(
+                                                    type='checkbox',
+                                                    checked= filterElements.attr_capacity[i]['isChecked']
+                                                )
+                                                a(
+                                                    class='link-avtomobilnye-masla'
+                                                    data-href= key
+                                                    data-checked= filterElements.attr_capacity[i]['isChecked']
+                                                    rel="nofollow"
+                                                    href='/'
+                                                )= filterElements.attr_capacity[i][key]
+                                            -break;
+                                        -}
+                                    -}
+                                -}
+                    .wrap-avtomobilnye-masla-products-list
+                        div(class='avtomobilnye-masla-products-list clearfix')
+                            -for(var i = 0; i < products.length; i++){
+                                div(class='avtomobilnye-masla-product clearfix')
+                                    .wrap-avtomobilnye-masla-product-image
+                                        a(href= '/products/' + products[i].product_url)
+                                            img(src= products[i].img_url)
+                                    .wrap-desc-avtomobilnye-masla
+                                        h2
+                                            a(href='/products/' + products[i].product_url)= products[i].name
+                                    .wrap-avtomobilnye-masla-buying-part
+                                        span= products[i].price + ' грн'
+                                        button(
+                                            class='button-add-to-cart'
+                                            data-product-id= JSON.stringify(products[i])
+                                        ) Купить 
+                            -}
+                        -if(pagesPaginator.length > 0){
+                            .avtomobilnye-masla-catalog-pages-paginator
+                                span Страницы:
+                                ul
+                                    -for(var i = 0; i < pagesPaginator.length; i++){
+                                        -if(pagesPaginator[i]['isActive']){
+                                            li(class='selected')
+                                                a(href= pagesPaginator[i]['href'])= pagesPaginator[i]['name']
+                                        -}else{
+                                            li
+                                                a(href= pagesPaginator[i]['href'])= pagesPaginator[i]['name']
+                                        -}
+                                    -}
+                        -}
+                    .wrap-description-category-part
+                        -if(seo.text){
+                            p= seo.text
+                        -}
+            include ../main/footer.pug
+        script(type='text/javascript', src='/static/js/catalog.js')

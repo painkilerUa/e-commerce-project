@@ -1,0 +1,24 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        .wrap
+            .admin-inner-part
+                nav.top-nav-admin
+                    ul
+                        li
+                            a(href='../orders/') Заказы
+                        li
+                            a(href='../catalog/') Каталог
+                        li
+                            a(href='../import/') Импорт
+                        li
+                            a(href='../yexport/') YML Export
+                        li
+                            a(href='./') Информация
+                h1  Общая информация
+                table(class='general-information-table-admin')
+                    tbody
+                        tr
+                            td Последнее обновление цен товаров
+                            td= data.last_update_products

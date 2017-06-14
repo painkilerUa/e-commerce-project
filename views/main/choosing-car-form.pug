@@ -1,0 +1,27 @@
+.wrap-choosing-car-form
+    h2 Выбирите ваш атомобиль
+    ul.wrap-title-tab
+        li(id='choosing-car-form-tab-1', class='current')
+            a(href='#') Производитель
+        li(id='choosing-car-form-tab-2')
+            a(href='#', data-id-tab='2') Модель
+        li(id='choosing-car-form-tab-3')
+            a(href='#', data-id-tab='3') Свойства модели
+    .wrap-content-choosing-auto
+        div(id='first-tab', class='first-tab active-tab')
+            ul(id='first-part-list-manufacturers', class='first-part-list-manufacturers')
+                each val, index in manufacturers
+                    if (index < 16)
+                        li
+                            a(href='#', data-mfa_id=val['mfa_id'], class='form-link-manufacturers')= val['mfa_brand']
+            span(id='butt-more-manufacturers', class='butt-more-manufacturers')
+                a(href='#', id='link-more-manufacturers') Показать всех производителей
+            ul(id='second-part-list-manufacturers', class='second-part-list-manufacturers')
+                each val, index in manufacturers
+                    if (16 <= index)
+                        li
+                            a(href='#', data-mfa_id=val['mfa_id'], class='form-link-manufacturers')= val['mfa_brand']
+            span(id='butt-less-manufacturers', class='butt-less-manufacturers')
+                a(href='#', id='link-less-manufacturers') Скрыть всех производителей
+        div(id='second-tab', class='second-tab') Second tab
+        div(id='third-tab', class='third-tab') Third tab

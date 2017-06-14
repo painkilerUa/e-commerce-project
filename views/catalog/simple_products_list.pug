@@ -1,0 +1,39 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        include ../main/popups.pug
+        .wrap
+            .w1
+                include ../main/header.pug
+                main.wrap-simple-products-list
+                    .wrap-filter-simple-products-list
+                        h3 Параметры товара
+                        aside.filter-simple-products-list
+                            span Производитель
+                            - var productsId = '';
+                            - var brandsObj = {};
+                            -for(var i = 0; i < products.length; i++){
+                            -   productsId += products[i]['id'] + ',';
+                            -   brandsObj[products[i]['attr_manufacturer']] = true;
+                            -}
+                            - var brands = Object.keys(brandsObj).sort();
+                            form(action='./sim-prod-filter', id='sim-prod-filter-form')
+                                each val, index in brands
+                                    .row-filter-simple-products-list
+                                        input(type='checkbox', id= 'brand_' + index, name='brand', value= brands[index], class='sim-prod-filter-form')
+                                        label(for= 'brand_' + index)= brands[index]
+                                input(type='hidden', name='products-id', value= productsId.substring(0, productsId.length - 1))
+
+
+                    .simple-products-list
+                        each val, index in products
+                            .wrap-product-in-catalog
+                                img(url='images/default.img')
+                            h2
+                                a(href='#')= val['name']
+                            span= val['price'] + ' грн.'
+                            span.button-buy-catalog Купить
+            footer.footer
+                .footer-inner
+        script(type='text/javascript', src='/static/js/catalog.js')

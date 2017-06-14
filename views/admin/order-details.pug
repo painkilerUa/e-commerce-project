@@ -1,0 +1,50 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        .wrap
+            .admin-inner-part
+                nav.top-nav-admin
+                    ul
+                        li
+                            a(href='../cabinet/') Кабинет
+                        li
+                            a(href='./') Заказы
+                        li
+                            a(href='./catalog/') Каталог
+                        li
+                            a(href='./') Импорт
+                .wrap-customer-information
+                    span Данные покупателя:
+                    span= 'ФИО ' + order.last_name + ' ' + order.first_name + ' ' + order.surname_name
+                    span= 'тел. ' + order.phone_number
+                .wrap-delivery-information
+                    -if(order.is_pikup_from_ofice){
+                        span Самовывоз из офиса
+                    -}
+                    -if(order.is_local_delivery){
+                        span= 'Адресная доставка по городу. Адрес: ' + order.adress_in_kharkiv
+                    -}
+                    -if(order.is_delivery_transport_company){
+                        span Доставка по Украине
+                        span= order.carrier + ' № ' + order.carrier_num_office + ' ' + order.city_name
+                    -}
+                .wrap-customer-comment
+                    -if(order.comment){
+                        span Комментарий к заказу:
+                        span= order.comment
+                    -}
+                .wrap-ordered-products-information
+                    table
+                        tbody
+                            tr
+                                td Наименование
+                                td Кол-во
+                                td Цена
+                            -for(var i = 0; i < products.length; i++ ){
+                                tr
+                                    td= products[i].name
+                                    td= products[i].quantity + ' шт'
+                                    td= products[i].quantity * products[i].price + ' грн.'
+                            -}
+

@@ -1,0 +1,38 @@
+doctype
+html
+    include ../main/head.pug
+    body
+        .wrap
+            .w1
+                include ../main/header.pug
+                main.wrap-statik-page
+                    h1 Контакты
+                    ul.phone-page-kontakti
+                        li
+                            a(href='tel:+380996424396') (099) 642-43-96
+                        li
+                            a(href='tel:+380673009852') (067) 300-98-52
+                        li
+                            a(href='tel:+380931025877') (093) 102-58-77
+                    .grafik-raboti-page-kontakti
+                        p График работы колл-центра интернет-магазина mkpp.com.ua
+                        p
+                            span Пн-Пт:
+                            span 9.00 до 19.00
+                        p
+                            span Сб:
+                            span 10.00 до 17.00
+                        p
+                            span Вс:
+                            span выходной
+                    .general-information-page-kontakti
+                        p Заказы по электронной почте отправляйте на адрес:
+                        span zakaz@mkpp.com.ua
+                        p Возникшие вопросы, предложения и замечания просим Вас отправлять на адрес:
+                        span info@mkpp.com.ua
+                    .wrap-map-page-kontakti
+                        p Пункт выдачи товаров (по предварительному согласованию с менеджером по телефону):
+                        span г. Харьков, ул. Грековская 6
+                        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=h6dIxlGjzvRYNqikpbmBpBLxE16wxr5T&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+            include ../main/footer.pug
+        script(type='text/javascript', src='/static/js/static.js')

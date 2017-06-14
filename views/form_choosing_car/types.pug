@@ -1,0 +1,28 @@
+table
+    thead
+        tr
+            td Марка
+            td Год
+            td кВ
+            td лС
+            td куб. см.
+            td Код двигателя
+            td Вид сборки
+    tbody
+        each val in data
+            tr
+                td
+                    a(href='/car/' + val['TYP_ID']+'/', class='form-link-type', data-typ_id=val['TYP_ID'])= val['MFA_BRAND'] + ' ' + val['MOD_CDS_TEXT'] + ' ' + val['TYP_CDS_TEXT']
+                -if (val['TYP_PCON_END'] == null){
+                -   var yearEnd = '.';
+                -}
+                -else{
+                -   var yearEnd = String(val['TYP_PCON_END']).substring(4,6) +'.'+ String(val['TYP_PCON_END']).substring(0, 4);
+                -}
+                -var dataProd = String(val['TYP_PCON_START']).substring(4,6) +'.'+ String(val['TYP_PCON_START']).substring(0, 4) + ' - '+ yearEnd;
+                td= dataProd
+                td= val['TYP_KW_FROM']
+                td= val['TYP_HP_FROM']
+                td= val['TYP_CCM']
+                td= val['ENG_CODE']
+                td= val['TYP_BODY_DES_TEXT']

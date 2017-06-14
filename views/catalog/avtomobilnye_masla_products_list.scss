@@ -1,0 +1,191 @@
+.wrap-avtomobilnye-masla-catalog{
+    max-width: 1220px;
+    margin: 0 auto;
+    h1{
+        padding: 10px 0 10px 10px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+} 
+.wrap-filter-avtomobilnye-masla{
+    width: 300px;
+    float: left;
+    padding-left: 10px;
+}
+.filter-avtomobilnye-masla{
+    padding: 10px;
+    span{
+        display: block;
+        padding: 10px 0;
+        font-size: 18px;
+    }
+}
+.wrap-selected-attr-oil-filter{
+    padding-left: 10px;
+    span{
+        &:last-child{
+            display: block;
+            padding: 0;
+        }
+    }
+    a{
+        text-decoration: none;
+        padding-left: 20px;
+        &:hover{
+            text-decoration: underline;
+            
+        }
+    }
+}
+.row-selected-attr-oil-filter{
+    background: url(../images/sprites/sprite.png) no-repeat 0 -233px;
+}
+.wrap-attr-oil-filter{
+    a{
+        text-decoration: none;
+        padding-left: 20px;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+.row-clear-oil-filter{
+    background: url(../images/sprites/sprite.png) no-repeat 0 -88px;
+}
+.row-attr-oil-filter{
+    position: relative;
+    margin-top: 5px;
+    input{
+        position: absolute;
+        top: 4px;
+        z-index: 1;
+    }
+    a{
+        position: relative;
+        z-index: 2;
+    }
+}
+.wrap-avtomobilnye-masla-products-list{
+    margin-left: 300px;
+}
+.avtomobilnye-masla-products-list{
+    float: right;
+    width: 100%;
+}
+.avtomobilnye-masla-product{
+    padding: 10px;
+    border-bottom: 1px solid #cccccc;
+}
+.wrap-avtomobilnye-masla-product-image{
+    float: left;
+    width: 200px;
+/*    padding: 30px 50px;*/
+    text-align: center;
+    img{
+        max-width: 120px;
+        max-height: 120px;
+    }
+}
+.wrap-desc-avtomobilnye-masla{
+    h2{
+        a{
+            text-decoration: none;
+            font-size: 18px;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.wrap-avtomobilnye-masla-buying-part{
+    float: right;
+    width: 200px;
+    text-align: center;
+    span{
+        display: block;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
+.button-add-to-cart{
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    border: 1px solid #a0a0a0;
+    border-radius: 5px;
+    background: linear-gradient(to top, #153A61, #fff);
+    margin-top: 10px;
+    cursor: pointer;
+}
+.avtomobilnye-masla-catalog-pages-paginator{
+    display: inline-block;
+    margin: 20px;
+    span{
+        font-size: 16px;
+        font-weight: 600;
+        margin-right: 10px;
+    }
+    ul{
+        display: inline-block;
+        .selected{
+            a{
+                background-color: #2172ca;
+            }
+        }
+        li{
+            display: inline-block;
+            margin-top: 10px;
+            a{
+                display: inline-block;
+                padding: 5px 10px;
+                margin-right: 5px;
+                border: 1px solid grey;
+                border-radius: 4px;
+                text-decoration: none;
+                background-color: #95b9e0;
+                color: #fff;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:1023px) {
+    .wrap-filter-avtomobilnye-masla{
+        float: initial;
+        width: 100%;
+    }
+    .wrap-avtomobilnye-masla-products-list{
+        margin: 0;
+        padding: 10px;
+    }
+    .avtomobilnye-masla-product{
+        margin-bottom: 10px;
+    }
+    .row-attr-products-filter{
+        display: inline-block;
+        margin-left: 20px;
+    }
+    .row-selected-attr-oil-filter{
+        display: inline-block;
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width:768px) {
+    .wrap-avtomobilnye-masla-buying-part{
+        float: initial;
+        width: 100%;
+        clear: both;
+    }
+}
+@media screen and (max-width:480px) {
+    .wrap-avtomobilnye-masla-product-image{
+        float: initial;
+        width: 100%;
+    }
+    .wrap-desc-avtomobilnye-masla{
+        text-align: center;
+    }
+}

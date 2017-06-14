@@ -1,0 +1,38 @@
+doctype
+html
+    include main/head.pug
+    body
+        include main/popups.pug
+        .wrap
+            .w1
+                include main/header.pug
+                main.main
+                    div(class='wrap-nav-slider clearfix')
+                        include main/main_menu.pug
+                        .wrap-slider
+                            .slider
+                                .first-slide
+                                    img(src='static/images/frontend/sliders/main-slider/slide1.jpg')
+                                .second-slide
+                                    img(src='static/images/frontend/sliders/main-slider/slide2.jpg')
+                    include main/choosing-car-form.pug
+                    .wrap-slider-popular-products
+                        h3 Популярные товары
+                        .slider-popular-products
+                            each val in popProd
+                                div
+                                    img(src= val['img_url'], alt='product', class='slider-popular-products-prod-img')
+                                    span(class='popular-products-name')
+                                        a(href= '/products/' + val['product_url'])= val['name']
+                                    span(class='popular-products-price')= val['price'] + ' грн.'
+                                    .slider-popular-products-wrap-but-buy
+                                        button(
+                                        class='button-add-to-cart'
+                                        data-product-id= JSON.stringify(val)
+                                        ) Купить
+            include main/footer.pug
+        script(type='text/javascript', src='//code.jquery.com/jquery-1.11.0.min.js')
+        script(type='text/javascript', src='//code.jquery.com/jquery-migrate-1.2.1.min.js')
+        script(type='text/javascript', src='/static/js/slick/slick.min.js')
+        script(type='text/javascript', src='/static/js/slick/slick-settings.js')
+        script(type='text/javascript', src='/static/js/index.js')

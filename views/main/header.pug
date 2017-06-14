@@ -1,0 +1,57 @@
+header.header
+    .wrap-top-nav
+        nav.top-nav
+            ul
+                li
+                    a(href='#') О нас
+                li
+                    a(href='/oplata-i-dostavka/') Доставка и оплата
+                li
+                    a(href='/garantiya/') Гарантия
+                li
+                    a(href='/kontakti/') Контакты
+    div(class='middle-header clearfix')
+        a(href='/', class='logo')
+            img(src='/static/images/frontend/logo.png', alt='logo')
+        ul.phone-header
+            li
+                a(href='tel:+380996424396') (099) 642-43-96
+            li
+                a(href='tel:+380673009852') (067) 300-98-52
+            li
+                a(href='tel:+380931025877') (093) 102-58-77
+        ul.work-time-header
+            li График работы
+            li
+                span Пн-Пт
+                span 9:00-19:00
+            li
+                span Сб
+                span 10:00-17:00
+            li
+                span Вс
+                span выходной
+        div(class='wrap-cart')
+            span Корзина:
+            a.cart-logo(href='/cart')
+                span(class='cart-count', id='cart-count')
+        .wrap-search-form-header
+            form(action='/search', method='get')
+                input(
+                type='text'
+                name='query'
+                class='search-input-header'
+                placeholder='Название запчасти'
+
+                )
+                input(
+                type='submit'
+                value='Найти'
+                class='search-but-header'
+                )
+            span Например: 77 00 274 177 или OC 1051
+    .bottom-header
+        span.wrap-button-main-menu 
+            a(href='#', id='button-main-menu') Каталог товаров
+        div(class='popup-main-menu', id='popup-main-menu')
+            include main_menu.pug

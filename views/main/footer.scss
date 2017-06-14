@@ -1,0 +1,95 @@
+.footer{
+    background: #f5f5f5;
+}
+.footer-wrap{
+    max-width: 1220px;
+    margin: 0 auto;
+    font-size: 0;
+    line-height: 0;
+}
+.footer-inner{
+    padding: 20px 0;
+}
+.wrap-social-button{
+    display: inline-block;
+    width: 33.333%;
+    vertical-align: top;
+    span{
+        display: block;
+        font-size: 18px;
+        line-height: 22px;
+    }
+    a{
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+.fb-icon{
+    width: 30px;
+    height: 30px;
+    background: url(../images/sprites/sprite.png) no-repeat 0 -113px;
+}
+.vk-icon{
+    width: 30px;
+    height: 30px;
+    background: url(../images/sprites/sprite.png) no-repeat 0 -148px;
+}
+.general-imformation{
+    display: inline-block;
+    vertical-align: top;
+    width: 33.333%;
+    text-align: center;
+    ul{
+        li{
+            margin-bottom: 5px;
+            a{
+                font-size: 16px;
+                line-height: 18px;
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+.wrap-contacts-footer{
+    width: 33.333%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    ul{
+        li{
+            margin-bottom: 5px;
+            a{
+                font-size: 16px;
+                line-height: 18px;
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1023px) {
+    .footer-wrap{
+        padding: 0 10px;
+    }
+}
+@media screen and (max-width:768px) {
+
+}
+@media screen and (max-width:480px) {
+    .wrap-social-button{
+        width: 50%;
+    }
+    .general-imformation{
+        width: 50%;
+    }
+    .wrap-contacts-footer{
+        width: 100%;
+        margin-top: 10px;
+    }
+}
