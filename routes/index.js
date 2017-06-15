@@ -89,6 +89,7 @@ var main = require('./main'),
     getCabinet = require('./admin/cabinet');
     getCabinetAJAX = require('./admin/cabinet-ajax')
     adminAPI = require('./admin/api')
+    getAdminIndexSPA = require('./admin/index-spa')
 
 module.exports = function (app) {
 
@@ -156,6 +157,7 @@ module.exports = function (app) {
     app.get('/oplata-i-dostavka/', getStatPageOplataIdostavka);
     app.get('/garantiya/', getStatPageGarantiya);
 // Admin part
+    app.get('/' + config.get('admin_spa_url') + '/', getAdminIndexSPA);
     app.get('/'+ config.get('admin_url') + '/', getAdminIndex);
     app.get('/'+ config.get('admin_url') + '/import', getAdminImport);
     app.get('/'+ config.get('admin_url') + '/import/busmarket', getAdminImportBusmarket);
