@@ -137,13 +137,13 @@ module.exports = function(req, res, next){
                         res.send('<p>В таблицу импорта добавленно ' + countAffectedRows + ' товаров</p><p>' + resolve[resolve.length - 1] + '</p><p><button onclick = addProductToCatalog() id="add-products-to-catalog">Продолжить</button></p>');
                     },
                     reject => {
-                        log.info('some promise used in importOmegaautopostavka have a error ' + reject);
+                        log.info('some promise used in import Omegaautopostavka have an error ' + reject);
                         res.send(reject);
                     }
                 )
             },
             errors => {
-                log.info('some promise used in importOmegaautopostavka have a error ' + reject);
+                log.info('some promise used in import Omegaautopostavka have an error ' + reject);
                 res.send(reject);
             }
         )

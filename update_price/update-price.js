@@ -51,126 +51,164 @@ module.exports = function(){
 
     Promise.all([getVendorsFromBD, getDataFromExelPriceBusmakret]).then(
         resolve => {
-            var promiseArray = [];
-            for(var i = 0; i < resolve[1].length; i++){
-                if(resolve[0].indexOf(resolve[1][i].vendor) != -1){
-                    promiseArray.push(
-                        new Promise((result, erorr) =>{
-                            var connection = manage.createConnection();
-                            var SQLquery = "UPDATE products SET price =" + resolve[1][i].price +" , update_time = "+ updateTime + ", provider_num = 1, quantity=9 WHERE vendor='" + resolve[1][i].vendor + "'";
-                            connection.query(SQLquery, function(err, rows, fields) {
-                                if (err) {
-                                    erorr(err);
-                                    connection.end();
-                                }
+            let updateDataProducts = (i) => {
+                return () => {
+                    return new Promise((result, erorr) =>{
+                        var connection = manage.createConnection();
+                        var SQLquery = "UPDATE products SET price =" + resolve[1][i].price + " , update_time = "+ updateTime + ", provider_num = 1, quantity=9 WHERE vendor='" + resolve[1][i].vendor + "'";
+                        connection.query(SQLquery, (err, rows, fields) => {
+                            if (err) {
+                                erorr(err);
                                 connection.end();
-                                result(rows);
-                            });
-                        })
-                    )
+                            }
+                            connection.end();
+                            result(rows);
+                        });
+                    })
                 }
             }
-            Promise.all(promiseArray).then(
-                resolve =>{
-                    Promise.all([getProductsFromBD(), getDataFromExelPriceMaslotochka()]).then(
-                        resolve => {
-                            var promiseArray = [];
-                            changePriceInDB(resolve, promiseArray, 2);
-                            Promise.all(promiseArray).then(
-                                resolve =>{
-                                    Promise.all([getProductsFromBD(), getDataFromExelPriceOmega()]).then(
-                                        resolve =>{
-                                            var promiseArray = [];
-                                            changePriceInDB(resolve, promiseArray, 3);
-                                            Promise.all(promiseArray).then(
-                                                resolve => {
-                                                    Promise.all([getProductsFromBD(), getDataFromExelPriceLiquiMoly()]).then(
-                                                        resolve =>{
-                                                            var promiseArray = [];
-                                                            changePriceHighestRight(resolve, promiseArray, 5);
-                                                            Promise.all(promiseArray).then(
-                                                                resolve =>{
-                                                                    Promise.all([getProductsFromBD(), getDataFromExelPriceASG()]).then(
-                                                                        resolve =>{
-                                                                            console.log('date from asg has been gotten');
-                                                                            var promiseArray = [];
-                                                                            changePriceInDB(resolve, promiseArray, 6);
-                                                                            Promise.all(promiseArray).then(
-                                                                                resolve =>{
-                                                                                    Promise.all([getProductsFromBD(), getDataFromExelPriceMkpp()]).then(
-                                                                                        resolve => {
-                                                                                            var promiseArray = [];
-                                                                                            changePriceHighestRight(resolve, promiseArray, 4);
-                                                                                            Promise.all(promiseArray).then(
-                                                                                                resolve =>{
-                                                                                                    switchOfUnchangedProducts().then(
-                                                                                                        resolve =>{
-                                                                                                            changeUpdateTime().then(
-                                                                                                                resolve => {
-                                                                                                                },
-                                                                                                                reject => {
-                                                                                                                    log.info('some errors in changeUpdateTime function update-price.js ' + reject);
-                                                                                                                }
-                                                                                                            )
-                                                                                                        },
-                                                                                                        reject =>{
-                                                                                                            log.info('some errors in switchOfUnchangedProducts function update-price.js ' + reject);
-                                                                                                        }
-                                                                                                    )
-                                                                                                },
-                                                                                                reject => {
-                                                                                                    log.info('some errors in proces udate price Mkpp update-price.js ' + reject);
-                                                                                                }
-                                                                                            )
-                                                                                        },
-                                                                                        reject => {
-                                                                                            log.info('some errors in proces reading exel file mkpp.xlsx or from DB ' + reject);
-                                                                                        }
-                                                                                    )
-                                                                                },
-                                                                                reject =>{
-                                                                                    log.info('some errors update price ASG ' + reject);
-                                                                                }
-                                                                            )
-                                                                        },
-                                                                        reject =>{
-                                                                            log.info('some errors in proces reading exel file asg.xlsx or from DB ' + reject);
-                                                                        }
-                                                                    )
-                                                                },
-                                                                reject =>{
-                                                                    log.info('some errors update price LiquiMolly ' + reject);
-                                                                }
-                                                            )
-                                                        },
-                                                        reject =>{
-                                                            log.info('some errors in proces reading exel file 18743.xlsx or from DB ' + reject);
-                                                        })
-                                                },
-                                                reject => {
-                                                    log.info('some errors in proces udate price Omegaautopostavka update-price.js ' + reject);
-                                                }
-                                            )
-                                        },
-                                        reject =>{
-                                            log.info('some errors in proces reading exel file omega.xlsx or from DB ' + reject);
-                                        }
-                                    );
-                                },
-                                reject =>{
-                                    log.info('some errors in proces udate price maslotochka update-price.js ' + reject);
-                                }
-                            );
-                        },
-                        reject => {
-                            log.info('some errors in proces reading exel file maslotochka or from DB ' + reject);
-                        }
-                    )
+
+            let promise = Promise.resolve();
+            for (let i of resolve[1]) {
+                promise = promise.then(updateDataProducts(i));
+            }
+            promise.then(resolve => {
+
                 },
-                reject =>{
-                    log.info('some errors in proces udate price busmarket update-price.js ' + reject);
+                reject => {
+
+            });
+
+
+
+
+
+            var promiseArray = [];
+            for(var i = 0; i < resolve[1].length; i++){
+                    if(resolve[0].indexOf(resolve[1][i].vendor) != -1){
+                        promiseArray.push(
+                            new Promise((result, erorr) =>{
+                                var connection = manage.createConnection();
+                                var SQLquery = "UPDATE products SET price =" + resolve[1][i].price + " , update_time = "+ updateTime + ", provider_num = 1, quantity=9 WHERE vendor='" + resolve[1][i].vendor + "'";
+                                connection.query(SQLquery, (err, rows, fields) => {
+                                    if (err) {
+                                        erorr(err);
+                                        connection.end();
+                                    }
+                                    connection.end();
+                                    result(rows);
+                                });
+                            })
+                        )
+                    }
                 }
-            )
+            Promise.all(promiseArray).then(
+                 resolve => {
+                     createPromise()
+                 }, reject => {
+
+                })
+            // Promise.all(promiseArray).then(
+            //     resolve =>{
+            //         Promise.all([getProductsFromBD(), getDataFromExelPriceMaslotochka()]).then(
+            //             resolve => {
+            //                 var promiseArray = [];
+            //                 changePriceInDB(resolve, promiseArray, 2);
+            //                 Promise.all(promiseArray).then(
+            //                     resolve =>{
+            //                         Promise.all([getProductsFromBD(), getDataFromExelPriceOmega()]).then(
+            //                             resolve =>{
+            //                                 var promiseArray = [];
+            //                                 changePriceInDB(resolve, promiseArray, 3);
+            //                                 Promise.all(promiseArray).then(
+            //                                     resolve => {
+            //                                         Promise.all([getProductsFromBD(), getDataFromExelPriceLiquiMoly()]).then(
+            //                                             resolve =>{
+            //                                                 var promiseArray = [];
+            //                                                 changePriceHighestRight(resolve, promiseArray, 5);
+            //                                                 Promise.all(promiseArray).then(
+            //                                                     resolve =>{
+            //                                                         Promise.all([getProductsFromBD(), getDataFromExelPriceASG()]).then(
+            //                                                             resolve =>{
+            //                                                                 console.log('date from asg has been gotten');
+            //                                                                 var promiseArray = [];
+            //                                                                 changePriceInDB(resolve, promiseArray, 6);
+            //                                                                 Promise.all(promiseArray).then(
+            //                                                                     resolve =>{
+            //                                                                         Promise.all([getProductsFromBD(), getDataFromExelPriceMkpp()]).then(
+            //                                                                             resolve => {
+            //                                                                                 var promiseArray = [];
+            //                                                                                 changePriceHighestRight(resolve, promiseArray, 4);
+            //                                                                                 Promise.all(promiseArray).then(
+            //                                                                                     resolve =>{
+            //                                                                                         switchOfUnchangedProducts().then(
+            //                                                                                             resolve =>{
+            //                                                                                                 changeUpdateTime().then(
+            //                                                                                                     resolve => {
+            //                                                                                                     },
+            //                                                                                                     reject => {
+            //                                                                                                         log.info('some errors in changeUpdateTime function update-price.js ' + reject);
+            //                                                                                                     }
+            //                                                                                                 )
+            //                                                                                             },
+            //                                                                                             reject =>{
+            //                                                                                                 log.info('some errors in switchOfUnchangedProducts function update-price.js ' + reject);
+            //                                                                                             }
+            //                                                                                         )
+            //                                                                                     },
+            //                                                                                     reject => {
+            //                                                                                         log.info('some errors in proces udate price Mkpp update-price.js ' + reject);
+            //                                                                                     }
+            //                                                                                 )
+            //                                                                             },
+            //                                                                             reject => {
+            //                                                                                 log.info('some errors in proces reading exel file mkpp.xlsx or from DB ' + reject);
+            //                                                                             }
+            //                                                                         )
+            //                                                                     },
+            //                                                                     reject =>{
+            //                                                                         log.info('some errors update price ASG ' + reject);
+            //                                                                     }
+            //                                                                 )
+            //                                                             },
+            //                                                             reject =>{
+            //                                                                 log.info('some errors in proces reading exel file asg.xlsx or from DB ' + reject);
+            //                                                             }
+            //                                                         )
+            //                                                     },
+            //                                                     reject =>{
+            //                                                         log.info('some errors update price LiquiMolly ' + reject);
+            //                                                     }
+            //                                                 )
+            //                                             },
+            //                                             reject =>{
+            //                                                 log.info('some errors in proces reading exel file 18743.xlsx or from DB ' + reject);
+            //                                             })
+            //                                     },
+            //                                     reject => {
+            //                                         log.info('some errors in proces udate price Omegaautopostavka update-price.js ' + reject);
+            //                                     }
+            //                                 )
+            //                             },
+            //                             reject =>{
+            //                                 log.info('some errors in proces reading exel file omega.xlsx or from DB ' + reject);
+            //                             }
+            //                         );
+            //                     },
+            //                     reject =>{
+            //                         log.info('some errors in proces udate price maslotochka update-price.js ' + reject);
+            //                     }
+            //                 );
+            //             },
+            //             reject => {
+            //                 log.info('some errors in proces reading exel file maslotochka or from DB ' + reject);
+            //             }
+            //         )
+            //     },
+            //     reject =>{
+            //         log.info('some errors in proces udate price busmarket update-price.js ' + reject);
+            //     }
+            // )
         },
         reject => {
             log.info('some errors in proces reading exel file busmarket.xlsx or from DB ' + reject);
