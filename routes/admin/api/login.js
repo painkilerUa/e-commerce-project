@@ -1,3 +1,4 @@
+"use strict"
 const manage = require('../../../manage');
 const config = require('../../../config');
 const crypto = require('crypto');
