@@ -320,3 +320,5 @@
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-06-15T14:11:09.737Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-06-17T12:49:52.616Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-06-17T12:54:59.222Z"}
+{"level":"info","message":"some errors in proces reading exel file busmarket.xlsx or from DB Error: File not found: ./prices/busmarket.xlsx","timestamp":"2017-06-19T21:20:46.058Z"}
+{"level":"info","message":"some errors in proces reading exel file busmarket.xlsx or from DB Error: File not found: ./prices/busmarket.xlsx","timestamp":"2017-06-19T21:25:30.251Z"}

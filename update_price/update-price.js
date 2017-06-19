@@ -29,7 +29,7 @@ let test = () => {
     const getDataFromExelPriceBusmakret = new Promise((resolve, reject) =>{
         const workbook = new Excel.Workbook();
         workbook.xlsx.readFile('./prices/busmarket.xlsx').then(
-            (data) => {
+            data => {
                 let importProducts = [];
                 let rows = data['_worksheets'][1]['_rows'];
                 for(let i = 1; i < rows.length; i++){
@@ -48,8 +48,8 @@ let test = () => {
                 };
                 resolve(importProducts);
             },
-            err => {
-                reject(err);
+            reject =>{
+                console.log(reject)
             }
         )
     })
@@ -69,20 +69,37 @@ let test = () => {
             })
         }
     }
-    Promise.all([getProductsFromBD, getDataFromExelPriceBusmakret]).then(
-        resolve => {
-            let promise = Promise.resolve();
-            for (let i of resolve[0]) {
-                for(let j of resolve[1]){
-                    if(i.vendor === j.vendor && i.update_time < updateTime || i.update_time == null || i.price > j.price ){
-                        promise = promise.then(updateDataProducts(j, 1));
-                    }
+    let simpleCompareProducts = (dataFromDB, dataFromPrice, numProvider) => {
+        let promise = Promise.resolve();
+        for (let i of dataFromDB) {
+            for(let j of dataFromPrice){
+                if(i.vendor === j.vendor && (i.update_time < updateTime || i.update_time == null || i.price > j.price)){
+                    promise = promise.then(updateDataProducts(j, numProvider));
                 }
             }
-            promise.then(
+        }
+        return promise;
+    }
+    Promise.all([getProductsFromDB(), getDataFromExelPriceBusmakret]).then(
+        resolve => {
+            simpleCompareProducts(resolve[0], resolve[1], 1).then(
                 resolve => {
+                    Promise.all([getProductsFromDB(), getDataFromExelPriceMaslotochka()]).then(
+                        resolve => {
+                            simpleCompareProducts(resolve[0], resolve[1], 2).then(
+                                resolve => {
+                                    Promise.all([getProductsFromDB(), getDataFromExelPriceOmega(), 3]).then(
+                                        resolve => {
 
+                                        }, reject => {
 
+                                        })
+                                }, reject => {
+                                    log.info('some errors in proces udate price maslotochka update-price.js ' + reject);
+                                })
+                        }, reject => {
+                            log.info('some errors in proces reading exel file maslotochka or from DB ' + reject);
+                        })
                 },
                 reject => {
                     log.info('some errors in proces udate price busmarket update-price.js ' + reject);
@@ -222,7 +239,7 @@ let test = () => {
         }
     )
 
-    function getProductsFromBD(){
+    function getProductsFromDB(){
         return new Promise((resolve, reject) =>{
             var connection = manage.createConnection();
             var SQLquery = "SELECT price, vendor, update_time FROM products";
