@@ -40,7 +40,7 @@ let test = () => {
                         continue;
                     }
                     if (rows[i]['_cells'][3] != undefined && rows[i]['_cells'][3]['_value']['value'] != null){
-                        currProd.price = mathPrice(rows[i]['_cells'][3]['_value']['value'], 29.3);
+                        currProd.price = rulePriceBusmarket(rows[i]['_cells'][3]['_value']['value']);
                     } else{
                         currProd.price = 0;
                     }
@@ -53,46 +53,68 @@ let test = () => {
             }
         )
     })
-
-    Promise.all([getVendorsFromBD, getDataFromExelPriceBusmakret]).then(
+    let updateDataProducts = (dataPrice, numProvider) => {
+        return () => {
+            return new Promise((result, erorr) =>{
+                var connection = manage.createConnection();
+                var SQLquery = "UPDATE products SET price =" + dataPrice.price +" , update_time = "+ updateTime + ", provider_num = " + numProvider + ", quantity=9 WHERE vendor='" + dataPrice.vendor + "'";
+                connection.query(SQLquery, (err, rows, fields) => {
+                    if (err) {
+                        erorr(err);
+                        connection.end();
+                    }
+                    connection.end();
+                    result(rows);
+                });
+            })
+        }
+    }
+    Promise.all([getProductsFromBD, getDataFromExelPriceBusmakret]).then(
         resolve => {
-            let updateDataProducts = (i) => {
-                return () => {
-                    return new Promise((result, erorr) =>{
-                        var connection = manage.createConnection();
-                        var SQLquery = "UPDATE products SET price =" + i.price + " , update_time = "+ updateTime + ", provider_num = 1, quantity=9 WHERE vendor='" + i.vendor + "'";
-                        connection.query(SQLquery, (err, rows, fields) => {
-                            if (err) {
-                                erorr(err);
-                                connection.end();
-                            }
-                            connection.end();
-                            result(rows);
-                        });
-                    })
-                }
-            }
             let promise = Promise.resolve();
-            let counter = 0;
-            for (let i of resolve[1]) {
-                if(productsVendors.indexOf(i.vendor) != -1){
-                    promise = promise.then(updateDataProducts(i));
-                    counter++;
-                    console.log(counter)
+            for (let i of resolve[0]) {
+                for(let j of resolve[1]){
+                    if(i.vendor === j.vendor && i.update_time < updateTime || i.update_time == null || i.price > j.price ){
+                        promise = promise.then(updateDataProducts(j, 1));
+                    }
                 }
             }
             promise.then(
-                result => {
-                    console.log(result)
+                resolve => {
+
+
                 },
-                erorr => {
-                    console.log(erorr)
+                reject => {
+                    log.info('some errors in proces udate price busmarket update-price.js ' + reject);
             });
 
 
 
 
-
+    // function changePriceInDB(data, promiseArray, numProvider){
+    //     for(var i = 0; i < data[1].length; i++){
+    //         for(var j = 0; j < data[0].length; j++){
+    //             if(data[1][i].vendor == data[0][j].vendor){
+    //                 if(data[0][j].update_time < updateTime || data[0][j].update_time == null || data[0][j].price > data[1][i].price){
+    //                     promiseArray.push(
+    //                         new Promise((resolve, reject) =>{
+    //                             var connection = manage.createConnection();
+    //                             var SQLquery = "UPDATE products SET price =" + data[1][i].price +" , update_time = "+ updateTime + ", provider_num = " + numProvider + ", quantity=9 WHERE vendor='" + data[1][i].vendor + "'";
+    //                             connection.query(SQLquery, function(err, rows, fields) {
+    //                                 if (err) {
+    //                                     reject(err);
+    //                                     connection.end();
+    //                                 }
+    //                                 connection.end();
+    //                                 resolve(rows);
+    //                             });
+    //                         })
+    //                     )
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
             // Promise.all(promiseArray).then(
             //     resolve =>{
             //         Promise.all([getProductsFromBD(), getDataFromExelPriceMaslotochka()]).then(
@@ -258,30 +280,7 @@ let test = () => {
             )
         });
     }
-    function changePriceInDB(data, promiseArray, numProvider){
-        for(var i = 0; i < data[1].length; i++){
-            for(var j = 0; j < data[0].length; j++){
-                if(data[1][i].vendor == data[0][j].vendor){
-                    if(data[0][j].update_time < updateTime || data[0][j].update_time == null || data[0][j].price > data[1][i].price){
-                        promiseArray.push(
-                            new Promise((resolve, reject) =>{
-                                var connection = manage.createConnection();
-                                var SQLquery = "UPDATE products SET price =" + data[1][i].price +" , update_time = "+ updateTime + ", provider_num = " + numProvider + ", quantity=9 WHERE vendor='" + data[1][i].vendor + "'";
-                                connection.query(SQLquery, function(err, rows, fields) {
-                                    if (err) {
-                                        reject(err);
-                                        connection.end();
-                                    }
-                                    connection.end();
-                                    resolve(rows);
-                                });
-                            })
-                        )
-                    }
-                }
-            }
-        }
-    }
+
     function switchOfUnchangedProducts(){
         return new Promise((resolve, reject) =>{
             var connection = manage.createConnection();
@@ -463,7 +462,8 @@ let test = () => {
         })
     }
     // Rules for definition costs
-    function mathPrice(price, currencyRate){
+    function rulePriceBusmarket(price){
+        let currencyRate = 29.3;
         if(price <= 35) return Math.round(price*1.2*currencyRate);
         if(35 < price && price <= 70) return Math.round(price*1.15*currencyRate);
         if(70 < price && price <= 100) return Math.round(price*1.1*10*currencyRate);
