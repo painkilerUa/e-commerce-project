@@ -185,6 +185,6 @@ module.exports = function (app) {
     app.get('/yexport/file/id/1', getYMLExportFileId1);
 // Google Adwords
     app.get('/gadwords/1', getGAdwords1);
-// 404 error hendling
+// 404 error handling
     app.get('*', error404);
 }
