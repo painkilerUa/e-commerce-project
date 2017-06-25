@@ -8,6 +8,8 @@ customer_add_phone
 customer_city
 customer_del_name
 customer_del_depart_num
+customer_local_address
+customer_comment
 
 
 ORDERS
@@ -17,10 +19,12 @@ order_del_city
 order_del_depart_num
 order_del_adress
 order_date
+order_ip
 order_status
 order_status_date
 order_tracking_num
 order_is_notificated
+order_comment
 
 ORDERDETAIL
 id
