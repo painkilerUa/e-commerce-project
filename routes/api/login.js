@@ -1,6 +1,6 @@
 "use strict"
-const manage = require('../../../manage');
-const config = require('../../../config');
+const manage = require('../../manage');
+const config = require('../../config/index');
 const crypto = require('crypto');
 const jwt     = require('jsonwebtoken');
 

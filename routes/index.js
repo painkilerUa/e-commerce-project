@@ -88,7 +88,7 @@ var main = require('./main'),
     getGeneralInformation = require('./admin/general-imformation');
     getCabinet = require('./admin/cabinet');
     getCabinetAJAX = require('./admin/cabinet-ajax')
-    adminAPI = require('./admin/api')
+    adminAPI = require('./api')
     getAdminIndexSPA = require('./admin/index-spa')
 
 module.exports = function (app) {
