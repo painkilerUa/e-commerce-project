@@ -40,7 +40,7 @@ id
 order_user_id
 order_del_city
 order_del_depart_num
-order_del_adress
+order_del_address
 order_date
 order_status
 order_status_date

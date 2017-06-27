@@ -19,12 +19,12 @@ module.exports = function(req, res, next){
                 connection.end();
             }
             connection.end();
-            resolve(rows);
+            resolve(rows.insertId);
         });
     })
     createCustomer.then(
         resolve => {
-            res.send('Customer was created')
+            res.send({customer_id: resolve})
     }, reject => {
         log.info('some errors in process creating new customer ' + reject);
         res.status(501).send('Customer was not added')
