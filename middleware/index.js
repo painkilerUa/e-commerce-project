@@ -6,7 +6,6 @@ module.exports = function (app, express) {
         bodyParser = require('body-parser'),
         updatePrice = require('../update_price/update-price-cron')(),
         favicon = require('serve-favicon');
-        jwt = require('express-jwt');
 
 
     // var jwtCheck = jwt({
@@ -24,8 +23,8 @@ module.exports = function (app, express) {
 
         app.use(express.static(config.get('publick_dir')));
         app.use(function(req, res, next) {
-            res.header("Access-Control-Allow-Origin", "http://localhost:8081");
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
             next();
         });
         // app.use(jwtCheck.unless({path: ['/api/login', '/slavery']}), (err, req, res, next) => {
@@ -35,6 +34,13 @@ module.exports = function (app, express) {
         //     next()
         // })
         router(app);
+        app.use((err, req, res, next) => {
+            if(err.name === 'UnauthorizedError'){
+                res.status(401).send('You should be authorized');
+            }else{
+                res.status(501).send('Something broken');
+            }
+        })
 };
 
 
