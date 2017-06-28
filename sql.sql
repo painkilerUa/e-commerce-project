@@ -19,6 +19,33 @@ customer_comment LONGBLOB,
 PRIMARY KEY(id)
 );
 
+
+
+CREATE TABLE products (
+id INT(11) NOT NULL AUTO_INCREMENT,
+name VARCHAR(255),
+short_description VARCHAR(50) DEFAULT NULL,
+description VARCHAR(50) DEFAULT NULL,
+price INT(5),
+product_url VARCHAR(50),
+img_url VARCHAR(50),
+quantity INT(5),
+vendor VARCHAR(50),
+category_id INT(5),
+attr_type VARCHAR(50),
+attr_manufacturer VARCHAR(50),
+attr_vid VARCHAR(50),
+attr_sae VARCHAR(50),
+attr_capacity INT(5),
+PRIMARY KEY(id)
+);
+
+INSERT INTO products (name, short_description, description, price, product_url, img_url, quantity, vendor, category_id, attr_type, attr_manufacturer, attr_vid, attr_sae, attr_capacity)
+VALUES ('Amazing red boots','','',100,'/products/j12','/static/logo.png','10','j145','9','boots','ecco','light', 'null','5');
+
+INSERT INTO products (name, short_description, description, price, product_url, img_url, quantity, vendor, category_id, attr_type, attr_manufacturer, attr_vid, attr_sae, attr_capacity)
+VALUES ('Slippers for real men','','',150,'/products/j152','/static/logo.png','9','j1445','5','boots','ecco','light', 'null','5');
+
 customers
 id
           customer_surname: '',
