@@ -5,7 +5,8 @@ const config = require('../../config/index'),
     jwt = require('express-jwt'),
     createCustomer = require('./customers/createCustomer'),
     getCustomers = require('./customers/getCustomers'),
-    getProducts = require('./products/getProducts')
+    getProducts = require('./products/getProducts'),
+    createProduct = require('./products/createProduct')
 
 let jwtCheck = jwt({
     secret: config.get('jwt_secret'),
@@ -19,5 +20,5 @@ module.exports = function (app) {
     app.get('/api/customers', jwtCheck, getCustomers);
     app.post('/api/customers', jwtCheck, createCustomer);
     app.get('/api/products', jwtCheck, getProducts);
-
+    app.post('/api/products', jwtCheck, createProduct);
 }

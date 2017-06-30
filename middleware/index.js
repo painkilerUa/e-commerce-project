@@ -5,7 +5,8 @@ module.exports = function (app, express) {
         router = require('../routes'),
         bodyParser = require('body-parser'),
         updatePrice = require('../update_price/update-price-cron')(),
-        favicon = require('serve-favicon');
+        favicon = require('serve-favicon'),
+        multer = require('multer');
 
 
     // var jwtCheck = jwt({
@@ -18,6 +19,7 @@ module.exports = function (app, express) {
 
         app.use(bodyParser.urlencoded({extended : false}));
         app.use(bodyParser.json());
+
         app.set('view engine', 'pug');
         app.set('views', path.join(__dirname, '../views'));
 
@@ -27,6 +29,7 @@ module.exports = function (app, express) {
             res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
             next();
         });
+        app.use(multer({dest: './data/'}).single('img'));
         // app.use(jwtCheck.unless({path: ['/api/login', '/slavery']}), (err, req, res, next) => {
         //     if (err.name === 'UnauthorizedError') {
         //     res.status(301).send('Unauthorized');
