@@ -1,10 +1,25 @@
 "use strict"
 const manage = require('../../../manage');
 const log = require('../../../utils/log');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = function(req, res, next){
-    req
-    // let createCustomer = new Promise((resolve, reject) =>{
+    let saveImg = new Promise((resolve, reject) => {
+        if(req.files.length){
+            let filePath = path.format({
+                dir: './publick/static/',
+                name: req.body.vendor,
+                ext: req.files[0].mimetype.split('/')[1]
+            });
+            fs.writeFile(filePath, req.files[0].buffer, (err) => {
+                if (err) reject(err);
+                resolve('The file has been saved!');
+            });
+        }
+
+    });
+    // let createProduct = new Promise((resolve, reject) =>{
     //     let connection = manage.createConnection();
     //     let col_name = [];
     //     let values = [];

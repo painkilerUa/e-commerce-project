@@ -29,7 +29,7 @@ module.exports = function (app, express) {
             res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
             next();
         });
-        app.use(multer({dest: './data/'}).single('img'));
+        app.use(multer({}).any());
         // app.use(jwtCheck.unless({path: ['/api/login', '/slavery']}), (err, req, res, next) => {
         //     if (err.name === 'UnauthorizedError') {
         //     res.status(301).send('Unauthorized');
