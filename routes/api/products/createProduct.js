@@ -1,9 +1,16 @@
 "use strict"
 const manage = require('../../../manage');
 const log = require('../../../utils/log');
+const fs = require('fs');
 
 module.exports = function(req, res, next){
-    req
+
+
+    fs.writeFile('./message.doc', req.files[0].buffer, (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+        res.send('Ok')
+    });
     // let createCustomer = new Promise((resolve, reject) =>{
     //     let connection = manage.createConnection();
     //     let col_name = [];
