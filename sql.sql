@@ -167,4 +167,4 @@ CREATE TABLE orders (
 );
 
 
-INSERT INTO products (name, short_description, description, price, purchase_price, status, meta_title, product_url, img_url, quantity, vendor, category_id, attr_type, attr_manufacturer, attr_vid, attr_sae, attr_capacity, attr_color, attr_antifreeze_class, update_time, provider_num) VALUES ('Awersome product', '', '', '100', '149', '0', '', '0001lj', '', '0', '0001lj', '0', '', '', '', '', '', '', '', '', '');
+INSERT INTO products (provider_num, attr_color, short_description, quantity, meta_title, attr_manufacturer, description, img_url, category_id, attr_sae, attr_capacity, vendor, attr_antifreeze_class, name, attr_vid, purchase_price, price, update_time, status, attr_type, product_url) VALUES ('2', '', '', '0', '', '', '', '', 0, '', '', 'ssss45', '', 'Шестеренка задней полуоси', '', '100', '149', '', '0', '', 'ssss45');

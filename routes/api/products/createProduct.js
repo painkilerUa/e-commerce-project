@@ -40,13 +40,17 @@ module.exports = function(req, res, next){
             let secondPart = "";
             for(let i in query){
                 firstPart += i + ', ';
-                secondPart += query[i] + ', ';
+                if(typeof(query[i]) === "string"){
+                    secondPart += "'" + query[i] + "', "
+                }else{
+                    secondPart += query[i] + ", "
+                }
+
             }
-            return firstPart.slice(0, -2) +") VALUES (" + secondPart.slice(0, -4) + ");"
+            return firstPart.slice(0, -2) +") VALUES (" + secondPart.slice(0, -2) + ");"
         }
 
         let SQLquery = "INSERT INTO products " + queryObjToString(query);
-        console.log(SQLquery)
         connection.query(SQLquery, (err, rows, fields) => {
             if (err) {
                 reject(err);
