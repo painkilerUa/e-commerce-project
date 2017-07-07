@@ -37,12 +37,12 @@ module.exports = function(req, res, next){
         }
         function queryObjToString(query){
             let firstPart = '(';
-            let secondPart = "'";
+            let secondPart = "";
             for(let i in query){
                 firstPart += i + ', ';
-                secondPart += query[i] + "', '"
+                secondPart += query[i] + ', ';
             }
-            return firstPart.slice(0, -2) +") VALUES (" + secondPart.slice(0, -3) + ");"
+            return firstPart.slice(0, -2) +") VALUES (" + secondPart.slice(0, -4) + ");"
         }
 
         let SQLquery = "INSERT INTO products " + queryObjToString(query);
