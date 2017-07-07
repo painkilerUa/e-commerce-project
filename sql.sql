@@ -167,3 +167,4 @@ CREATE TABLE orders (
 );
 
 
+INSERT INTO products (name, short_description, description, price, purchase_price, status, meta_title, product_url, img_url, quantity, vendor, category_id, attr_type, attr_manufacturer, attr_vid, attr_sae, attr_capacity, attr_color, attr_antifreeze_class, update_time, provider_num) VALUES ('Awersome product', '', '', '100', '149', '0', '', '0001lj', '', '0', '0001lj', '0', '', '', '', '', '', '', '', '', '');
