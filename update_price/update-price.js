@@ -344,6 +344,35 @@ let test = () => {
             )
         })
     }
+    function getDataFromExelPriceMotul(){
+        return new Promise((resolve, reject) => {
+            var workbook = new Excel.Workbook();
+            workbook.xlsx.readFile('./prices/motul.xlsx').then(
+                (data) => {
+                    var importProducts = [];
+                    var rows = data['_worksheets'][1]['_rows'];
+                    for(var i = 0; i < rows.length; i++){
+                        var currProd = {};
+                        if (rows[i]['_cells'][1] != undefined && rows[i]['_cells'][1]['_value']['value'] != null){
+                            currProd.vendor = rows[i]['_cells'][1]['_value']['value'].toString().replace(/\s/g, '').toLowerCase();
+                        } else{
+                            continue;
+                        }
+                        if (rows[i]['_cells'][6] != undefined && rows[i]['_cells'][6]['_value']['value'] != null){
+                            currProd.price = +rows[i]['_cells'][6]['_value']['value'].toString().replace(',', '.');
+                        } else{
+                            currProd.price = 0;
+                        }
+                        importProducts.push(currProd);
+                    };
+                    resolve(importProducts);
+                },
+                err => {
+                    reject(err);
+                }
+            )
+        })
+    }
     function getDataFromExelPriceMkpp(){
         return new Promise((resolve, reject) => {
             var workbook = new Excel.Workbook();
