@@ -19,21 +19,19 @@ customer_comment LONGBLOB DEFAULT NULL,
 PRIMARY KEY(id)
 );
 
-customers
-id
-          customer_surname: '',
-          customer_name: '',
-          customer_patronymic: '',
-          customer_main_phone: '',
-          customer_add_phone: '',
-          customer_add_1_phone: '',
-          customer_email: '',
-          customer_city: '',
-          customer_del_name: '',
-          customer_del_depart_num: '',
-          customer_local_address: '',
-          customer_comment: ''
-
+CREATE TABLE orders (
+id INT(11) NOT NULL AUTO_INCREMENT,
+order_user_id INT(11) NOT NULL,
+order_del_city VARCHAR(50) NOT NULL,
+order_del_depart_num INT(3) DEFAULT NULL,
+order_del_address VARCHAR(255) DEFAULT NULL,
+order_date BIGINT(13) NOT NULL,
+order_status ENUM('created') NOT NULL,
+order_status_date BIGINT(13) NOT NULL,
+order_tracking_num BIGINT(13) DEFAULT NULL,
+order_is_notificated BIT NOT NULL DEFAULT 0,
+PRIMARY KEY(id)
+);
 
 ORDERS
 id

@@ -5,11 +5,12 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = function(req, res, next){
+    let product = JSON.parse(req.body.props);
     let saveImg = new Promise((resolve, reject) => {
         if(req.files.length){
             let filePath = path.format({
-                dir: './publick/static/',
-                name: req.body.vendor,
+                dir: './publick/static/catalog' + product.category ? product.category : 0,
+                name: product.vendor,
                 ext: '.' + req.files[0].mimetype.split('/')[1]
             });
             fs.writeFile(filePath, req.files[0].buffer, (err) => {
@@ -22,17 +23,24 @@ module.exports = function(req, res, next){
     });
     let createProduct = new Promise((resolve, reject) =>{
         let connection = manage.createConnection();
-        let query = Object.assign({}, req.body);
 
-        if(!query['category_id']){
-            query['category_id'] = 0;
+        if(!product['category_id']){
+            product['category_id'] = 0;
         }
-        query['product_url'] = req.body.vendor;
+        if(!product['quantity']){
+            product['quantity'] = 0;
+        }
+        if(!product['status']){
+            product['status'] = 0;
+        }
+        product.vendor = product.vendor.replace(/\//g,'');
+
+        product['product_url'] = product['attr_manufacturer'] ? product['attr_manufacturer'] + '-' : '' + product.vendor;
         if(req.files.length){
-            if(query.category_id === 1){
-                query['img_url'] = '/static/catalog/1/' + query.attr_manufacturer + '/' + query.vendor + '.' + req.files[0].mimetype.split('/')[1];
+            if(product.category_id === 1){
+                product['img_url'] = '/static/catalog/1/' + product.attr_manufacturer + '/' + product.vendor + '.' + req.files[0].mimetype.split('/')[1];
             }else{
-                query['img_url'] = '/static/catalog/' + query.category_id + '/' + query.vendor + '.' + req.files[0].mimetype.split('/')[1];
+                product['img_url'] = '/static/catalog/' + product.category_id + '/' + product.vendor + '.' + req.files[0].mimetype.split('/')[1];
             }
         }
         function queryObjToString(query){
@@ -50,7 +58,7 @@ module.exports = function(req, res, next){
             return firstPart.slice(0, -2) +") VALUES (" + secondPart.slice(0, -2) + ");"
         }
 
-        let SQLquery = "INSERT INTO products " + queryObjToString(query);
+        let SQLquery = "INSERT INTO products " + queryObjToString(product);
         connection.query(SQLquery, (err, rows, fields) => {
             if (err) {
                 reject(err);
