@@ -22,43 +22,28 @@ PRIMARY KEY(id)
 CREATE TABLE orders (
 id INT(11) NOT NULL AUTO_INCREMENT,
 order_user_id INT(11) NOT NULL,
+order_prepay ENUM('false', 'waiting', 'true') NOT NULL,
 order_del_city VARCHAR(50) NOT NULL,
 order_del_depart_num INT(3) DEFAULT NULL,
 order_del_address VARCHAR(255) DEFAULT NULL,
 order_date BIGINT(13) NOT NULL,
-order_status ENUM('created') NOT NULL,
+order_status ENUM('pending', 'processing', 'paid', 'holding', 'sended', 'completed', 'closed', 'confirmed') NOT NULL,
 order_status_date BIGINT(13) NOT NULL,
 order_tracking_num BIGINT(13) DEFAULT NULL,
 order_is_notificated BIT NOT NULL DEFAULT 0,
 PRIMARY KEY(id)
 );
 
-ORDERS
-id
-order_user_id
-order_del_city
-order_del_depart_num
-order_del_address
-order_date
-order_status
-order_status_date
-order_tracking_num
-order_is_notificated
+CREATE TABLE order_detail (
+id INT(11) NOT NULL AUTO_INCREMENT,
+detail_order_id INT(11) NOT NULL,
+detail_product_id INT(11) NOT NULL,
+detail_sell_price FLOAT (7,2) UNSIGNED NOT NULL,
+detail_bought_price FLOAT (7,2) UNSIGNED NOT NULL,
+detail_quantity INT(11) NOT NULL,
+PRIMARY KEY(id)
+);
 
-ORDERDETAIL
-id
-detail_order_id
-detail_product_id
-detail_sell_price
-detail_bought_price
-detail_quantity
-
-
-
-PRODUCTS
-id
-price
-quantity
 
 
 CREATE TABLE authorization (
