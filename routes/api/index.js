@@ -6,7 +6,8 @@ const config = require('../../config/index'),
     createCustomer = require('./customers/createCustomer'),
     getCustomers = require('./customers/getCustomers'),
     getProducts = require('./products/getProducts'),
-    createProduct = require('./products/createProduct')
+    createProduct = require('./products/createProduct'),
+    createOrder = require('./orders/createOrder')
 
 let jwtCheck = jwt({
     secret: config.get('jwt_secret'),
@@ -17,6 +18,7 @@ let jwtCheck = jwt({
 module.exports = function (app) {
     app.post('/api/login', login);
     app.get('/api/orders', jwtCheck, orders);
+    app.post('/api/orders', jwtCheck, createOrder);
     app.get('/api/customers', jwtCheck, getCustomers);
     app.post('/api/customers', jwtCheck, createCustomer);
     app.get('/api/products', jwtCheck, getProducts);

@@ -6,7 +6,7 @@ module.exports = function(req, res, next){
     if(req.user.scope){
         let getProducts = new Promise((resolve, reject) =>{
             let connection = manage.createConnection();
-            let SQLquery = "SELECT id, name, short_description, description, price, product_url, img_url, quantity, vendor, category_id, attr_type, attr_manufacturer, attr_vid, attr_sae, attr_capacity FROM products;";
+            let SQLquery = "SELECT id, name, short_description, description, price, purchase_price, product_url, img_url, quantity, vendor, category_id, attr_type, attr_manufacturer, attr_vid, attr_sae, attr_capacity FROM products;";
             connection.query(SQLquery, (err, rows, fields) => {
                 if (err) {
                     reject(err);
