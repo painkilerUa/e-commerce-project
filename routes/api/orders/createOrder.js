@@ -4,7 +4,7 @@ const log = require('../../../utils/log');
 const _mysql = require('../../../manageSQL')
 
 module.exports = function(req, res, next){
-    let order = JSON.parse(req.body.order);
+//    let order = JSON.parse(req.body.order);
     order
     // let createOrder = new Promise((resolve, reject) => {
     //     let SQLquery = "INSERT INTO products " + queryObjToString(product);
