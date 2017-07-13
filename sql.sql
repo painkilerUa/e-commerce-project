@@ -42,7 +42,8 @@ detail_product_id INT(11) NOT NULL,
 detail_sell_price FLOAT (7,2) UNSIGNED NOT NULL,
 detail_bought_price FLOAT (7,2) UNSIGNED NOT NULL,
 detail_quantity INT(11) NOT NULL,
-PRIMARY KEY(id)
+PRIMARY KEY(id),
+FOREIGN KEY (detail_order_id) REFERENCES orders(id)
 );
 
 

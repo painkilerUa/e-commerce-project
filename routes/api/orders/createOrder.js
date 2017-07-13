@@ -1,10 +1,11 @@
 "use strict"
-const manage = require('../../../manage');
-const log = require('../../../utils/log');
+const manage = require('../../../manage')
+const log = require('../../../utils/log')
 const _mysql = require('../../../manageSQL')
 
 module.exports = function(req, res, next){
-//    let order = JSON.parse(req.body.order);
+    let order = Object.assign({}, req.body)
+
     order
     // let createOrder = new Promise((resolve, reject) => {
     //     let SQLquery = "INSERT INTO products " + queryObjToString(product);
