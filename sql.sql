@@ -15,8 +15,9 @@ customer_city VARCHAR(20) DEFAULT NULL,
 customer_del_name ENUM('new_post', 'intime', 'delivery') DEFAULT NULL,
 customer_del_depart_num INT(3) DEFAULT NULL,
 customer_local_address VARCHAR(255) DEFAULT NULL,
-customer_comment LONGBLOB DEFAULT NULL,
-PRIMARY KEY(id)
+customer_comment TEXT DEFAULT NULL,
+PRIMARY KEY(id),
+UNIQUE (customer_main_phone)
 );
 
 CREATE TABLE orders (
@@ -32,7 +33,9 @@ order_status ENUM('pending', 'processing', 'paid', 'holding', 'sended', 'complet
 order_status_date BIGINT(13) NOT NULL,
 order_tracking_num BIGINT(13) DEFAULT NULL,
 order_is_notificated BIT NOT NULL DEFAULT 0,
-PRIMARY KEY(id)
+order_comment TEXT DEFAULT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (order_user_id) REFERENCES customers(id)
 );
 
 CREATE TABLE order_detail (
