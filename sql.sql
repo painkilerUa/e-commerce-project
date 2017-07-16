@@ -2,7 +2,7 @@ CREATE DATABASE example_mk CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 
-CREATE TABLE customers (
+CREATE TABLE customers(
 id INT(11) NOT NULL AUTO_INCREMENT,
 customer_surname VARCHAR(50) DEFAULT NULL,
 customer_name VARCHAR(50) DEFAULT NULL,
@@ -46,7 +46,8 @@ detail_sell_price FLOAT (7,2) UNSIGNED NOT NULL,
 detail_bought_price FLOAT (7,2) UNSIGNED NOT NULL,
 detail_quantity INT(11) NOT NULL,
 PRIMARY KEY(id),
-FOREIGN KEY (detail_order_id) REFERENCES orders(id)
+FOREIGN KEY (detail_order_id) REFERENCES orders(id),
+FOREIGN KEY (detail_product_id) REFERENCES products(id),
 );
 
 

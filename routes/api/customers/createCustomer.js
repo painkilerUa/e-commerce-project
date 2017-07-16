@@ -1,33 +1,39 @@
 "use strict"
-const manage = require('../../../manage');
+const _mysql = require('../../../manageSQL')
 const log = require('../../../utils/log');
 
 module.exports = function(req, res, next){
-    let createCustomer = new Promise((resolve, reject) =>{
-        let connection = manage.createConnection();
-        let col_name = [];
-        let values = [];
-        for(let i in req.body){
-            col_name.push(i);
-            values.push(req.body[i])
-        }
+    let customer = Object.assign({}, req.body)
 
-        let SQLquery = "INSERT INTO customers (" + col_name.join(', ') + ") VALUES ('" + values.join("', '") + "');";
-        connection.query(SQLquery, (err, rows, fields) => {
-            if (err) {
+    new Promise((resolve, reject) => {
+        let SQLquery = "INSERT INTO customers " + queryObjToString(customer);
+        _mysql(SQLquery, (err, rows) => {
+            if(err){
                 reject(err);
-                connection.end();
+            }else{
+                resolve(rows.insertId);
             }
-            connection.end();
-            resolve(rows.insertId);
-        });
-    })
-    createCustomer.then(
-        resolve => {
-            res.send({customer_id: resolve})
-    }, reject => {
-        log.info('some errors in process creating new customer ' + reject);
+        })
+    }).then((resolve) => {
+        res.send({customer_id: resolve})
+    }).catch((err) => {
+        log.info('Error in process adding order data to DB' + err)
         res.status(501).send('Customer was not added')
     })
+
+    function queryObjToString(queryObj){
+        let firstPart = '(';
+        let secondPart = "";
+        for(let i in queryObj){
+            firstPart += i + ', ';
+            if(typeof(queryObj[i]) === "string"){
+                secondPart += "'" + queryObj[i] + "', "
+            }else{
+                secondPart += queryObj[i] + ", "
+            }
+
+        }
+        return firstPart.slice(0, -2) +") VALUES (" + secondPart.slice(0, -2) + ");"
+    }
 }
 

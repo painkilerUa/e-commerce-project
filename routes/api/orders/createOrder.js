@@ -25,10 +25,11 @@ module.exports = function(req, res, next){
         let SQLquery = "INSERT INTO orders " + queryObjToString(order);
         _mysql(SQLquery, (err, rows) => {
             if(err){
-                throw err;
+                reject(err);
+            }else{
+                orderId = rows.insertId;
+                resolve(rows.insertId);
             }
-            orderId = rows.insertId;
-            resolve(rows.insertId);
         })
     }).then((resolve) => {
         let addOrderDetailChain = Promise.resolve();
@@ -39,7 +40,8 @@ module.exports = function(req, res, next){
             res.send({order_id: orderId})
         })
     }).catch((err) => {
-        log.info('Error in process adding order data to DB' + err)
+        log.info('Error in process adding order data to DB' + err);
+        res.status(501).send('Order was not added')
     })
     function queryObjToString(queryObj){
         let firstPart = '(';
