@@ -34,6 +34,7 @@ module.exports = function(req, res){
                     orders[orders.length -1].products.push(product)
                 }else {
                     let curOrder = {
+                        order_id: resolve[i].id,
                         order_comment: resolve[i].order_comment,
                         order_date: resolve[i].order_date,
                         order_del_address: resolve[i].order_del_address,
