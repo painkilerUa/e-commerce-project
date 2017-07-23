@@ -13,3 +13,34 @@
 {"level":"info","message":"Error in process getting orders data TypeError: Cannot read property 'products' of undefined","timestamp":"2017-07-16T14:03:53.107Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-16T14:05:02.460Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-16T22:22:27.434Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-17T21:06:06.594Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-21T22:35:45.806Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-21T22:37:58.039Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-22T11:55:46.196Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T12:11:41.434Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:12:06.487Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:14:02.554Z"}
+{"level":"info","message":"Error in process getting orders data Error: ER_NON_UNIQ_ERROR: Column 'id' in order clause is ambiguous","timestamp":"2017-07-23T14:14:09.974Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:17:11.127Z"}
+{"level":"info","message":"Error in process getting orders data Error: ER_BAD_FIELD_ERROR: Unknown column 'order.id' in 'order clause'","timestamp":"2017-07-23T14:17:25.125Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:17:53.238Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:24:09.084Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:26:18.662Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:36:17.494Z"}
+{"level":"info","message":"Error in process getting orders data Error: ER_NON_UNIQ_ERROR: Column 'id' in field list is ambiguous","timestamp":"2017-07-23T14:36:22.680Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:37:23.005Z"}
+{"level":"info","message":"Error in process getting orders data Error: ER_NON_UNIQ_ERROR: Column 'id' in field list is ambiguous","timestamp":"2017-07-23T14:37:27.685Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:38:27.492Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:48:15.875Z"}
+{"level":"info","message":"Error in process getting orders data Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INNER JOIN order_detail ON orders.id = order_detail.detail_order_id INNER JOIN p' at line 1","timestamp":"2017-07-23T14:48:25.116Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:54:01.509Z"}
+{"level":"info","message":"Error in process getting orders data Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INNER JOIN order_detail ON orders.id = order_detail.detail_order_id INNER JOIN p' at line 1","timestamp":"2017-07-23T14:54:17.252Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:55:08.587Z"}
+{"level":"info","message":"Error in process getting orders data Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INNER JOIN order_detail ON id = order_detail.detail_order_id INNER JOIN products' at line 1","timestamp":"2017-07-23T14:55:13.260Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T14:57:15.878Z"}
+{"level":"info","message":"Error in process getting orders data Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INNER JOIN order_detail ON orders.id = order_detail.detail_order_id INNER JOIN p' at line 1","timestamp":"2017-07-23T14:57:20.138Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T15:02:24.086Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T15:06:01.544Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T15:07:30.338Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T15:08:14.931Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-23T15:09:10.234Z"}

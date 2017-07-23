@@ -157,3 +157,6 @@ CREATE TABLE orders (
 
 
 INSERT INTO products (provider_num, attr_color, short_description, quantity, meta_title, attr_manufacturer, description, img_url, category_id, attr_sae, attr_capacity, vendor, attr_antifreeze_class, name, attr_vid, purchase_price, price, update_time, status, attr_type, product_url) VALUES ('2', '', '', '0', '', '', '', '', 0, '', '', 'ssss45', '', 'Шестеренка задней полуоси', '', '100', '149', '', '0', '', 'ssss45');
+
+
+SELECT orders.id, order_prepay, detail_product_id, name  FROM orders INNER JOIN order_detail ON orders.id = order_detail.detail_order_id INNER JOIN products ON order_detail.detail_product_id = products.id INNER JOIN customers ON orders.order_user_id = customers.id ORDER BY orders.id

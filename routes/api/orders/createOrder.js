@@ -1,5 +1,4 @@
 "use strict"
-const manage = require('../../../manage')
 const log = require('../../../utils/log')
 const _mysql = require('../../../manageSQL')
 

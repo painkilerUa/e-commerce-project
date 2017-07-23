@@ -48,7 +48,7 @@ function createAccessToken(role) {
     return jwt.sign({
         iss: config.get('jwt_issuer'),
         aud: config.get('jwt_audience'),
-        exp: Math.floor(Date.now() / 1000) + (60 * 60),
+        exp: Math.floor(Date.now() / 1000) + (8*60 * 60),
         scope: role,
         sub: "some desc",
         jti: genJti(),
