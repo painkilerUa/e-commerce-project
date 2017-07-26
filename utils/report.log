@@ -73,3 +73,42 @@
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-24T15:18:18.617Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-24T15:19:31.444Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-24T15:30:29.122Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T11:12:30.242Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T11:26:47.834Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T11:30:21.987Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T11:31:14.584Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T11:37:59.746Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T12:30:13.014Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T12:31:53.737Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T12:46:26.103Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T12:46:53.820Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T12:50:46.805Z"}
+{"level":"info","message":"Error in process updating order statusError: ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause'","timestamp":"2017-07-25T12:53:01.705Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T12:53:31.395Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T12:55:59.614Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T12:58:25.105Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T13:02:33.049Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T13:22:44.295Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T13:23:39.824Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-25T13:26:51.791Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T10:05:04.264Z"}
+{"level":"info","message":"Error in process adding order data to DBError: ER_BAD_NULL_ERROR: Column 'customer_main_phone' cannot be null","timestamp":"2017-07-26T10:16:47.105Z"}
+{"level":"info","message":"Error in process adding order data to DBError: ER_BAD_NULL_ERROR: Column 'customer_main_phone' cannot be null","timestamp":"2017-07-26T10:16:47.250Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T10:45:44.921Z"}
+{"level":"info","message":"Error in process editing customer dataError: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[object Object] WHERE id=1' at line 1","timestamp":"2017-07-26T10:46:12.922Z"}
+{"level":"info","message":"Error in process editing customer dataError: ER_BAD_FIELD_ERROR: Unknown column 'customer_surname' in 'field list'","timestamp":"2017-07-26T11:11:44.963Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T11:12:34.850Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T11:14:06.793Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T12:49:31.571Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T12:51:03.680Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T12:51:08.270Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T14:46:49.408Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T14:47:45.777Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T14:50:11.313Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T15:06:11.962Z"}
+{"level":"info","message":"some errors in process updating product ReferenceError: path is not defined","timestamp":"2017-07-26T15:06:12.149Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T15:06:47.173Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T15:14:56.583Z"}
+{"level":"info","message":"some errors in process updating product Error: ENOENT: no such file or directory, open 'D:\\Eugene\\project\\publick\\static\\catalog\\0\\001k.png'","timestamp":"2017-07-26T15:16:25.208Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T15:24:23.463Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-26T15:45:23.179Z"}

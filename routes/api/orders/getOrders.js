@@ -14,7 +14,7 @@ module.exports = function(req, res){
                 "order_del_address, order_date, order_status, order_status_date, order_tracking_num, order_is_notificated, order_comment, " +
                 "customer_surname, customer_name, customer_patronymic, customer_main_phone, customer_add_phone, customer_add_1_phone," +
                 " customer_email, customer_city, customer_del_name, customer_del_depart_num, customer_local_address, customer_comment," +
-                "detail_order_id, detail_product_id, detail_sell_price, detail_bought_price, detail_quantity," +
+                "order_detail.id AS detail_order_row_id, detail_order_id, detail_product_id, detail_sell_price, detail_bought_price, detail_quantity," +
                 "products.id as product_id, name " +
                 "FROM orders INNER JOIN order_detail ON orders.id = detail_order_id INNER JOIN products ON order_detail.detail_product_id = products.id INNER JOIN customers ON orders.order_user_id = customers.id ORDER BY orders.id"
             _mysql(SQLquery, (err, rows) => {
@@ -30,6 +30,7 @@ module.exports = function(req, res){
                 if(i && resolve[i].id === resolve[i-1].id){
                     let product = {
                         id: resolve[i].detail_product_id,
+                        row_id: resolve[i].detail_order_row_id,
                         name: resolve[i].name,
                         vendor: resolve[i].vendor,
                         price: resolve[i].detail_sell_price,
@@ -56,6 +57,7 @@ module.exports = function(req, res){
                         order_comment: resolve[i].order_comment,
                         products: [{
                             id: resolve[i].detail_product_id,
+                            row_id: resolve[i].detail_order_row_id,
                             name: resolve[i].name,
                             vendor: resolve[i].vendor,
                             price: resolve[i].detail_sell_price,

@@ -22,7 +22,7 @@ module.exports = function(req, res, next){
     let orderId = null
     new Promise((resolve, reject) => {
         let SQLquery = "INSERT INTO orders " + queryObjToString(order);
-        _mysql(SQLquery, (err, rows) => {
+        return _mysql(SQLquery, (err, rows) => {
             if(err){
                 reject(err);
             }else{
