@@ -2,7 +2,7 @@
 const log = require('../../../utils/log')
 const _mysql = require('../../../manageSQL')
 
-module.exports = function(req, res, next){
+module.exports = function(req, res){
     if(req.user.scope == 'manager' && req.body.order_status == 'confirmed'){
         res.status(401).send('Insufficient rights for this action')
         return

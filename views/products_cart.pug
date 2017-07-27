@@ -18,39 +18,39 @@ html
                                 .cart-form-row
                                     input(
                                         type='text'
-                                        name='last_name'
+                                        name='customer_surname'
                                         placeholder='Фамилия'
                                         required
                                     )
                                 .cart-form-row
                                     input(
                                         type='text'
-                                        name='first_name'
+                                        name='customer_name'
                                         placeholder='Имя'
                                         required
                                     )
                                 .cart-form-row
                                     input(
                                         type='text'
-                                        name='surname_name'
+                                        name='customer_patronymic'
                                         placeholder='Отчество'
                                     )
                                 .cart-form-row
                                     input(
                                         type='tel'
-                                        name='phone_number'
+                                        name='customer_main_phone'
                                         maxlength='13'
                                         placeholder='Номер мобильного телефона'
                                         required
                                     )
-                                div(class='cart-form-row wrap-checkbox-pickup-from-ofice')
-                                    input(
-                                        type='checkbox'
-                                        name='is_pickup_from_ofice'
-                                        value='1'
-                                        id='checkbox-pickup-from-ofice'
-                                    ) 
-                                    label(for='checkbox-pickup-from-ofice') Самовывоз товара
+                                <!--div(class='cart-form-row wrap-checkbox-pickup-from-ofice')-->
+                                    <!--input(-->
+                                        <!--type='checkbox'-->
+                                        <!--name='is_pickup_from_ofice'-->
+                                        <!--value='1'-->
+                                        <!--id='checkbox-pickup-from-ofice'-->
+                                    <!--) -->
+                                    <!--label(for='checkbox-pickup-from-ofice') Самовывоз товара-->
                                 div(class='cart-form-row checkbox-adress-delivery')
                                     input(
                                         type='checkbox'
@@ -62,7 +62,7 @@ html
                                 .cart-form-row
                                     input(
                                         type='text'
-                                        name='adress_in_kharkiv'
+                                        name='order_del_address'
                                         placeholder='Адресс в г. Харьков'
                                     )
                                 div(class='cart-form-row checkbox-delivery-transport-company')
@@ -81,20 +81,20 @@ html
                                     )
                                 div(class='cart-form-row wrap-choosing-transport-company')
                                     select(
-                                        name='carrier'
+                                        name='order_del_name'
                                     )
-                                        option(value='Новая Почта') Новая Почта
-                                        option(value='Интайм') Интайм
-                                        option(value='Деливери') Деливери
-                                        option(value='Другой') Согласовать
+                                        option(selected)
+                                        option(value='new_post') Новая Почта
+                                        option(value='intime') Интайм
+                                        option(value='delivery') Деливери
                                     input(
                                         type='text'
-                                        name='carrier_num_office'
+                                        name='order_del_depart_num'
                                         placeholder='№'
                                     )
                                 div(class='cart-form-row wrap-comments-order-form')
                                     textarea(
-                                    name='comment'
+                                    name='order_comment'
                                     rows='5'
                                     maxlength='400'
                                     style='resize: none'
