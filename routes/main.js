@@ -5,10 +5,10 @@ var manage = require('../manage.js'),
 
 
 
-module.exports = function(req, res, next){
+module.exports = function(req, res){
     var promiseDataPopProduct = new Promise((resolve, reject) => {
         var connection = manage.createConnection(),
-            SQLquery = 'SELECT id, name, product_url, img_url, price from products where id IN(50,142,10,71,20,5,950,180,790,887,1224)';
+            SQLquery = 'SELECT id, name, product_url, img_url, price, purchase_price, provider_num from products where id IN(50,142,10,71,20,5,950,180,790,887,1224)';
 
         connection.connect();
         connection.query(SQLquery, function(err, rows, fields) {

@@ -6,7 +6,7 @@ var manage = require('../manage.js'),
 module.exports = function(req, res, next){
     var getAllProducts = new Promise((resolve, reject) => {
         var connection = manage.createConnection(),
-            SQLquery = 'SELECT id, name, short_description, description, price, product_url, img_url, quantity, vendor, category_id, attr_manufacturer, attr_capacity, attr_color, attr_antifreeze_class FROM products WHERE category_id = 2 and quantity > 0';
+            SQLquery = 'SELECT id, name, short_description, description, price, purchase_price, product_url, img_url, quantity, vendor, category_id, attr_manufacturer, attr_capacity, attr_color, attr_antifreeze_class, provider_num FROM products WHERE category_id = 2 and quantity > 0';
         connection.connect();
         connection.query(SQLquery, function(err, rows, fields) {
             if (err) {

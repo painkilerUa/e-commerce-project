@@ -24,7 +24,7 @@ CREATE TABLE orders (
 id INT(11) NOT NULL AUTO_INCREMENT,
 order_user_id INT(11) NOT NULL,
 order_prepay ENUM('false','pending', 'waiting', 'true') NOT NULL,
-order_del_city VARCHAR(50) NOT NULL,
+order_del_city VARCHAR(50) DEFAULT NULL,
 order_del_name ENUM('new_post', 'intime', 'delivery') DEFAULT NULL,
 order_del_depart_num INT(3) DEFAULT NULL,
 order_del_address VARCHAR(255) DEFAULT NULL,
@@ -48,7 +48,7 @@ detail_quantity INT(11) NOT NULL,
 INDEX index_detail_order_id (detail_order_id),
 PRIMARY KEY(id),
 FOREIGN KEY (detail_order_id) REFERENCES orders(id),
-FOREIGN KEY (detail_product_id) REFERENCES products(id),
+FOREIGN KEY (detail_product_id) REFERENCES products(id)
 );
 
 

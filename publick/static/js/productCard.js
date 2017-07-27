@@ -34,9 +34,11 @@
                     id : currentProduct['id'],
                     name : currentProduct['name'],
                     price : currentProduct['price'],
+                    purchase_price : currentProduct['purchase_price'],
                     img_url : currentProduct['img_url'],
                     product_url : currentProduct['product_url'],
-                    ordered : 1
+                    ordered : 1,
+                    provider_num : currentProduct['provider_num']
                 }]
             );
         }else{
@@ -50,9 +52,11 @@
                     id : currentProduct['id'],
                     name : currentProduct['name'],
                     price : currentProduct['price'],
+                    purchase_price : currentProduct['purchase_price'],
                     img_url : currentProduct['img_url'],
                     product_url : currentProduct['product_url'],
-                    ordered : 1
+                    ordered : 1,
+                    provider_num : currentProduct['provider_num']
                 });
             }else{
                 products[idArr.indexOf(currentProduct['id'])].ordered++;

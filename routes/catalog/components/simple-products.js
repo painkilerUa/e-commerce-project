@@ -14,7 +14,7 @@ module.exports = function(req, res, category_id, main_url){
     });
     var getProducts = new Promise((resolve, reject) => {
             var connection = manage.createConnection(),
-            SQLquery = 'SELECT id, name, short_description, description, price, product_url, img_url, quantity, vendor, attr_manufacturer FROM products WHERE category_id = ' + category_id + ' and quantity > 0';
+            SQLquery = 'SELECT id, name, short_description, description, price, purchase_price, product_url, img_url, quantity, vendor, attr_manufacturer, provider_num FROM products WHERE category_id = ' + category_id + ' and quantity > 0';
     connection.connect();
     connection.query(SQLquery, function(err, rows, fields) {
         if (err) {
