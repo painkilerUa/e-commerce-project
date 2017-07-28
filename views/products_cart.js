@@ -109,9 +109,12 @@
         for(var i = 0; i < products.length; i++){
             returnedProd.push(
                 {
+                    id : products[i]['id'],
                     name : products[i]['name'],
                     price : products[i]['price'],
-                    ordered : products[i]['ordered']
+                    purchase_price: products[i]['purchase_price'],
+                    ordered : products[i]['ordered'],
+                    provider_num : products[i]['provider_num']
                 }
             )
         }
@@ -136,3 +139,10 @@
     }
 }());
 
+// var showInputLocalDel = document.getElementById('');
+// showInputLocalDel.isShown = false;
+//
+// showInputLocalDel.addEventListener('change', function(){
+//     document.getElementById('').style.display = showInputLocalDel.isShown ? '' : "block";
+//     showInputLocalDel.isShown = !showInputLocalDel.isShown;
+// })

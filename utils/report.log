@@ -130,3 +130,42 @@
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-27T22:46:39.367Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-27T22:49:36.676Z"}
 {"level":"info","message":"some errors in proces adding data to table orders cartOrder.js Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT id WHERE customer_main_phone=380936973159' at line 1","timestamp":"2017-07-27T22:51:29.702Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T06:30:33.044Z"}
+{"level":"info","message":"some errors in proces adding data to table orders cartOrder.js Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT id WHERE customer_main_phone=380936973159' at line 1","timestamp":"2017-07-28T06:38:21.812Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T06:52:52.256Z"}
+{"level":"info","message":"[MYSQL] Error connecting to mysql:Error: connect ETIMEDOUT","timestamp":"2017-07-28T06:54:32.289Z"}
+{"level":"info","message":"some errors in proces adding data to table orders cartOrder.js Error: connect ETIMEDOUT","timestamp":"2017-07-28T06:55:43.327Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:02:03.222Z"}
+{"level":"info","message":"[MYSQL] Error connecting to mysql:Error: connect ETIMEDOUT","timestamp":"2017-07-28T07:02:52.713Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:04:34.253Z"}
+{"level":"info","message":"[MYSQL] Error connecting to mysql:Error: connect ETIMEDOUT","timestamp":"2017-07-28T07:05:23.622Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:07:00.528Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:07:50.390Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:20:21.157Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:23:42.703Z"}
+{"level":"info","message":"[MYSQL] Error connecting to mysql:Error: connect ETIMEDOUT","timestamp":"2017-07-28T07:26:00.651Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:27:00.566Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:37:08.573Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:39:45.885Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:44:38.564Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:46:55.269Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:48:36.445Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:50:45.822Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:52:55.669Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T07:56:34.029Z"}
+{"level":"info","message":"[MYSQL] Error connecting to mysql:Error: connect ETIMEDOUT","timestamp":"2017-07-28T08:02:15.964Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T08:14:10.279Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T08:34:47.803Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T08:36:54.727Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T08:44:31.447Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T08:48:40.145Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T08:51:45.531Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T08:53:17.954Z"}
+{"level":"info","message":"[MYSQL] Error connecting to mysql:Error: connect ETIMEDOUT","timestamp":"2017-07-28T08:55:00.828Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T08:56:07.057Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T08:57:10.212Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T08:59:15.781Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T10:21:40.195Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T10:24:28.265Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T10:24:44.926Z"}
+{"level":"info","message":"some errors in proces adding data to table orders cartOrder.js Error: ER_DATA_TOO_LONG: Data too long for column 'order_del_city' at row 1","timestamp":"2017-07-28T10:25:59.383Z"}

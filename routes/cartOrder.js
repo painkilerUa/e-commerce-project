@@ -7,7 +7,7 @@ module.exports = function(req, res){
 
     let customerQuery = {};
     let orderQuery = {
-        order_prepay: false,
+        order_prepay: 'false',
         order_date: +new Date(),
         order_status: 'pending',
         order_status_date: +new Date(),
@@ -28,27 +28,46 @@ module.exports = function(req, res){
     })
 
     new Promise((resolve, reject) => {
-        let SQLquery = "INSERT INTO customers " + queryObjToString(customerQuery) + " ON DUPLICATE KEY SELECT id WHERE customer_main_phone=" + customerQuery['customer_main_phone'];
+        let SQLquery = "SELECT id FROM customers WHERE customer_main_phone=" + customerQuery['customer_main_phone'];
         _mysql(SQLquery, (err, rows) => {
             if(err){
                 reject(err);
             }else{
-                resolve(rows.insertId);
+                if(rows.length !== 0){
+                    resolve(rows[0].id)
+                }else{
+                    resolve(0)
+                }
             }
+        })
+    }).then((resolve) => {
+
+        if(resolve) return resolve;
+
+        return new Promise((resolve, reject) => {
+            let SQLquery = "INSERT INTO customers " + queryObjToString(customerQuery);
+            _mysql(SQLquery, (err, rows) => {
+                if(err){
+                    reject(err);
+                }else{
+                    resolve(rows.insertId);
+                }
+            })
         })
     }).then((resolve) => {
 
         orderQuery['order_user_id'] = resolve;
 
-        let SQLquery = "INSERT INTO orders " + queryObjToString(orderQuery);
-        return _mysql(SQLquery, (err, rows) => {
-            if(err){
-                throw err;
-            }else{
-                return rows.insertId;
-            }
+        return new Promise((resolve, reject) => {
+            let SQLquery = "INSERT INTO orders " + queryObjToString(orderQuery);
+            _mysql(SQLquery, (err, rows) => {
+                if(err){
+                    reject(err);
+                }else{
+                    resolve(rows.insertId);
+                }
+            })
         })
-
     }).then((resolve) => {
         let products = JSON.parse(req.body.ordered_products);
         let addOrderDetailChain = Promise.resolve();
@@ -76,7 +95,7 @@ module.exports = function(req, res){
             }
 
         }
-        return firstPart.slice(0, -2) +") VALUES (" + secondPart.slice(0, -2) + ")"
+        return firstPart.slice(0, -2) +") VALUES (" + secondPart.slice(0, -2) + ");"
     }
 
     function addOrderDetail(orderId, product){
@@ -99,94 +118,18 @@ module.exports = function(req, res){
             })
         }
     }
-    // var insertOrder = new Promise ((resolve, reject) => {
-    //     var params = req.body;
-    //     var values = [];
-    //     var ordered_products = JSON.parse(params.ordered_products);
-    //     var products_name = [];
-    //     var products_quantity = [];
-    //     var products_price = [];
-    //     for(var i = 0; i < ordered_products.length; i++){
-    //         products_name.push(ordered_products[i]['name']);
-    //         products_quantity.push(ordered_products[i]['ordered']);
-    //         products_price.push(ordered_products[i]['price'])
-    //     }
-    //     values.push(products_name.join(';'));
-    //     values.push(products_quantity.join(';'));
-    //     values.push(products_price.join(';'));
-    //     values.push(params.last_name);
-    //     values.push(params.first_name);
-    //     if(params.surname_name){
-    //         values.push(params.surname_name);
-    //     }else{
-    //         values.push('');
-    //     }
-    //     values.push(params.phone_number);
-    //     if(params.is_pikup_from_ofice){
-    //         values.push(params.is_pikup_from_ofice);
-    //     }else{
-    //         values.push('');
-    //     }
-    //     if(params.is_local_delivery){
-    //         values.push(params.is_local_delivery);
-    //     }else{
-    //         values.push('');
-    //     }
-    //     if(params.adress_in_kharkiv){
-    //         values.push(params.adress_in_kharkiv);
-    //     }else{
-    //         values.push('');
-    //     }
-    //     if(params.is_delivery_transport_company){
-    //         values.push(params.is_delivery_transport_company);
-    //     }else{
-    //         values.push('');
-    //     }
-    //     if(params.city_name){
-    //         values.push(params.city_name);
-    //     }else{
-    //         values.push('');
-    //     }
-    //     if(params.carrier){
-    //         values.push(params.carrier);
-    //     }else{
-    //         values.push('');
-    //     }
-    //     if(params.carrier_num_office){
-    //         values.push(params.carrier_num_office);
-    //     }else{
-    //         values.push('');
-    //     }
-    //     if(params.comment){
-    //         values.push(params.comment);
-    //     }else{
-    //         values.push('');
-    //     }
-    //     var connection = manage.createConnection(),
-    //     SQLquery = "INSERT INTO orders (products_name, products_quantity, products_price, last_name, first_name, surname_name, phone_number, is_pikup_from_ofice, is_local_delivery, adress_in_kharkiv, is_delivery_transport_company, city_name, carrier, carrier_num_office, comment) VALUES ('" + values.join("','") + "')";
-    //     console.log(SQLquery);
-    //     connection.connect();
-    //     connection.query(SQLquery, function(err, rows, fields) {
-    //         if (err) {
-    //             reject(err);
-    //             connection.end();
-    //         }
-    //         connection.end();
-    //         resolve(rows);
-    //     });
-    // })
-    // insertOrder.then(
-    //     resolve => {
-    //         if(resolve.affectedRows > 0){
-    //             res.render('succesfull_order',{title: 'Заказ принят успешно', cleanLocalStorage : true, massage : 'Ваш заказ принят. В ближайшее врямя с вами свяжутся наши менеджери для уточнения деталей покупки.'});
-    //         }else{
-    //             res.render('succesfull_order',{title: 'Ошибки при оформлении заказ', cleanLocalStorage : false, massage : 'В процессе оформления заказа произошли ошибки. Пожалуйста повторите заказ, или свяжитесь с нами по телефону.'});
-    //         }
-    //     },
-    //     reject => {
-    //         res.render('succesfull_order',{title: 'Заказ принят успешно', cleanLocalStorage : false, massage : 'В процессе оформления заказа произошли ошибки. Пожалуйста повторите заказ, или свяжитесь с нами по телефону.'});
-    //         log.info('some errors in proces adding data to table orders cartOrder.js ' + reject);
-    //     }
-    // )
+
+    function queryObjToStringForUpdate(queryObj) {
+        let query = '';
+        Object.keys(queryObj).forEach((key) => {
+
+            if (typeof(queryObj[key]) === "string") {
+                query += key + "='" + queryObj[key] + "', "
+            } else {
+                query += key + "=" + queryObj[key] + ", "
+            }
+        })
+        return query.slice(0, -2)
+    }
 }
 
