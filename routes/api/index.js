@@ -12,8 +12,9 @@ const config = require('../../config/index'),
 
     getOrders = require('./orders/getOrders'),
     createOrder = require('./orders/createOrder'),
-    editOrder = require('./orders/editOrder')
+    editOrder = require('./orders/editOrder'),
 
+    updateProductsPrices = require('./products-prices/update.js')
 
 let jwtCheck = jwt({
     secret: config.get('jwt_secret'),
@@ -35,4 +36,6 @@ module.exports = function (app) {
     app.get('/api/products', jwtCheck, getProducts);
     app.post('/api/products', jwtCheck, createProduct);
     app.put('/api/products', jwtCheck, updateProduct);
+
+    app.put('/api/products-prices', jwtCheck, updateProductsPrices);
 }

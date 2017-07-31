@@ -3,9 +3,9 @@ const manage = require('../manage.js'),
     Excel = require('exceljs'),
     log = require('../utils/log');
 
-//module.exports = function(){
+module.exports = (res) => {
 
-let test = () => {
+// let test = (res) => {
     let date = new Date();
     let updateTime = date.getTime();
     let productsVendors;
@@ -123,6 +123,7 @@ let test = () => {
                                                                                                                         resolve => {
                                                                                                                             changeUpdateTime().then(
                                                                                                                                 resolve => {
+                                                                                                                                    res.send('prices has been successfully updated')
                                                                                                                                 },
                                                                                                                                 reject => {
                                                                                                                                     log.info('some errors in changeUpdateTime function update-price.js ' + reject);

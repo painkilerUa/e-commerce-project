@@ -169,3 +169,20 @@
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T10:24:28.265Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-28T10:24:44.926Z"}
 {"level":"info","message":"some errors in proces adding data to table orders cartOrder.js Error: ER_DATA_TOO_LONG: Data too long for column 'order_del_city' at row 1","timestamp":"2017-07-28T10:25:59.383Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T11:16:11.630Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T12:54:39.455Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T13:01:45.812Z"}
+{"level":"info","message":"Error in process adding order data to DBError: ER_DUP_ENTRY: Duplicate entry '380936978002' for key 'customer_main_phone'","timestamp":"2017-07-31T13:08:56.377Z"}
+{"level":"info","message":"Error in process adding order data to DBError: ER_DUP_ENTRY: Duplicate entry '380936978002' for key 'customer_main_phone'","timestamp":"2017-07-31T13:09:06.089Z"}
+{"level":"info","message":"Error in process adding order data to DBError: ER_DUP_ENTRY: Duplicate entry '380930002911' for key 'customer_main_phone'","timestamp":"2017-07-31T13:10:32.103Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:02:37.970Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:14:42.016Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:15:02.249Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:18:34.174Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:21:55.023Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:22:54.079Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:24:40.328Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:25:23.924Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:28:10.257Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:33:02.890Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:34:38.907Z"}
