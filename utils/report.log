@@ -186,3 +186,9 @@
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:28:10.257Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:33:02.890Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-07-31T15:34:38.907Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-01T13:12:30.693Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-01T14:35:36.782Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-01T14:35:47.377Z"}
+{"level":"info","message":"Error in process getting data about last prices updateError: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1","timestamp":"2017-08-01T14:37:10.437Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-01T14:47:25.243Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-01T15:08:56.580Z"}

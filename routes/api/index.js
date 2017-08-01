@@ -14,7 +14,8 @@ const config = require('../../config/index'),
     createOrder = require('./orders/createOrder'),
     editOrder = require('./orders/editOrder'),
 
-    updateProductsPrices = require('./products-prices/update.js')
+    updateProductsPrices = require('./products-prices/update.js'),
+    getLastUpdateDatePrice = require('./products-prices/getLastUpdateDate.js')
 
 let jwtCheck = jwt({
     secret: config.get('jwt_secret'),
@@ -38,4 +39,5 @@ module.exports = function (app) {
     app.put('/api/products', jwtCheck, updateProduct);
 
     app.put('/api/products-prices', jwtCheck, updateProductsPrices);
+    app.get('/api/products-prices', jwtCheck, getLastUpdateDatePrice);
 }

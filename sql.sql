@@ -23,7 +23,7 @@ UNIQUE (customer_main_phone)
 CREATE TABLE orders (
 id INT(11) NOT NULL AUTO_INCREMENT,
 order_user_id INT(11) NOT NULL,
-order_prepay ENUM('false','pending', 'waiting', 'true') NOT NULL,
+order_prepay INT(5) NOT NULL,
 order_del_city VARCHAR(50) DEFAULT NULL,
 order_del_name ENUM('new_post', 'intime', 'delivery') DEFAULT NULL,
 order_del_depart_num INT(3) DEFAULT NULL,

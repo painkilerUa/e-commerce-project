@@ -123,7 +123,7 @@ module.exports = (res) => {
                                                                                                                         resolve => {
                                                                                                                             changeUpdateTime().then(
                                                                                                                                 resolve => {
-                                                                                                                                    res.send('prices has been successfully updated')
+                                                                                                                                    res.send({type: 'up_time', time: new Date()})
                                                                                                                                 },
                                                                                                                                 reject => {
                                                                                                                                     log.info('some errors in changeUpdateTime function update-price.js ' + reject);

@@ -16,7 +16,7 @@ module.exports = function(req, res){
             savePriceFileChain = savePriceFileChain.then(addPriceFilePromise(price));
         }
         savePriceFileChain.then((resolve) => {
-            res.send("Files has been successfully updated");
+            res.send({type: 'prices_file', success: true});
             return
         }).catch((err) => {
             res.status(500).send("Files has been successfully updated");

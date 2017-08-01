@@ -2,7 +2,7 @@
 const manage = require('../../../manage');
 const log = require('../../../utils/log');
 
-module.exports = function(req, res, next){
+module.exports = (req, res) => {
     if(req.user.scope){
         let getCustomer = new Promise((resolve, reject) =>{
             let connection = manage.createConnection();

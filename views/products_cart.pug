@@ -1,4 +1,4 @@
-doctype
+﻿doctype
 html
     include ./main/head.pug
     body
@@ -63,6 +63,8 @@ html
                                     input(
                                         type='text'
                                         name='order_del_address'
+					id='order_del_address_input'
+					class='order_del_address_input'
                                         placeholder='Адресс в г. Харьков'
                                     )
                                 div(class='cart-form-row checkbox-delivery-transport-company')
@@ -77,6 +79,8 @@ html
                                     input(
                                         type='text'
                                         name='order_del_city'
+					id='order_del_city_input'
+					class='order_del_city_input'
                                         placeholder='Город'
                                     )
                                 div(class='cart-form-row wrap-choosing-transport-company')

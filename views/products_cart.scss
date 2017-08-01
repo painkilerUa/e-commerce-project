@@ -226,6 +226,12 @@
         text-transform: uppercase;
     }
 }
+.order_del_address_input{
+    display: none;
+}
+.order_del_city_input{
+    display: none;
+}
 @media screen and (max-width:1023px) {
     .main-wrap-cart{
         padding: 0 10px;

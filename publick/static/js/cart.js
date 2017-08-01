@@ -137,6 +137,21 @@
             cartCount.innerHTML = '';
         }
     }
+
+    var showInputLocalDel = document.getElementById('checkbox-adress-delivery');
+    var showInputDelCity = document.getElementById('checkbox-delivery-transport-company');
+
+    showInputLocalDel.isShown = false;
+    showInputDelCity.isShown = false;
+
+    showInputLocalDel.addEventListener('change', function(){
+        document.getElementById('order_del_address_input').style.display = showInputLocalDel.isShown ? '' : "block";
+        showInputLocalDel.isShown = !showInputLocalDel.isShown;
+    })
+    showInputDelCity.addEventListener('change', function(){
+        document.getElementById('order_del_city_input').style.display = showInputDelCity.isShown ? '' : "block";
+        showInputDelCity.isShown = !showInputDelCity.isShown;
+    })
 }());
 
 
