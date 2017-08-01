@@ -11,7 +11,7 @@ var manage = require('./manage.js'),
             database : 'mkpp_update'
             });
 
-        var SQLquery = "SELECT * FROM products WHERE category_id = 316";
+        var SQLquery = "SELECT * FROM products WHERE category_id = 2";
         connection.connect();
         connection.query(SQLquery, function(err, rows, fields) {
             if (err) {
@@ -66,32 +66,35 @@ var manage = require('./manage.js'),
                 //     'полусинтетическая' : 'semisynth',
                 //     'синтетическая' : 'synth'
                 // }
-                var changes = {
-                    'BOSCH' : 'bosch',
-                    'ASHIKA': 'ashika',
-                    'VERNET': 'vernet',
-                    'KNECHT' : 'knecht',
-                    'MANN' : 'mann',
-                    'MFILTER' : 'mfilter',
-                    'LUK': 'luk',
-                    'CIFAM': 'cifam',
-                    'AISIN': 'aisin',
-                    'MOBIS' : 'mobis',
-                    'PURFLUX' : 'purflux',
-                    'WIX' : 'wix',
-                    'CONTITECH' : 'contitech',
-                    'DAYCO': 'dayco',
-                    'FEBI BILSTEIN': 'febi',
-                    'RIDER': 'rider',
-                    'RUVILLE': 'ruville',
-                    'TRW': 'trw',
-                    'MANDO' : 'mando',
-                    'LEMFORDER' : 'lemforder',
-                    'PARTS MALL': 'partsmall',
-                    'CTR': 'ctr'
-                }
+
+//                var changes = {
+//                    'BOSCH' : 'bosch',
+//                    'ASHIKA': 'ashika',
+//                    'VERNET': 'vernet',
+//                    'KNECHT' : 'knecht',
+//                    'MANN' : 'mann',
+//                    'MFILTER' : 'mfilter',
+//                    'LUK': 'luk',
+//                    'CIFAM': 'cifam',
+//                    'AISIN': 'aisin',
+//                    'MOBIS' : 'mobis',
+//                    'PURFLUX' : 'purflux',
+//                    'WIX' : 'wix',
+//                    'CONTITECH' : 'contitech',
+//                    'DAYCO': 'dayco',
+//                    'FEBI BILSTEIN': 'febi',
+//                    'RIDER': 'rider',
+//                    'RUVILLE': 'ruville',
+//                    'TRW': 'trw',
+//                    'MANDO' : 'mando',
+//                    'LEMFORDER' : 'lemforder',
+//                    'PARTS MALL': 'partsmall',
+//                    'CTR': 'ctr'
+//                }
+
 // query for motor oil queryArr.push("UPDATE products SET attr_type='" + changes[result[i]['attr_type']] + "', attr_manufacturer='" + changes[result[i]['attr_manufacturer']] + "', attr_vid='"+ changes[result[i]['attr_vid']] + "', attr_sae= '" + changes[result[i]['attr_sae']] + "' WHERE id=" + result[i]['id']);
 // query for oil filter queryArr.push("UPDATE products SET attr_manufacturer='" + changes[result[i]['attr_manufacturer']] + "' WHERE id=" + result[i]['id']);
+
 
                 for(var i = 0; i < result.length; i++){
                     queryArr.push("UPDATE products SET attr_manufacturer='" + changes[result[i]['attr_manufacturer']] + "' WHERE id=" + result[i]['id']);
