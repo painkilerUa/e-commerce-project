@@ -40,6 +40,7 @@ module.exports = (res) => {
                         continue;
                     }
                     if (rows[i]['_cells'][3] != undefined && rows[i]['_cells'][3]['_value']['value'] != null){
+                        currProd.purchase_price = Math.ceil(+rows[i]['_cells'][3]['_value']['value'] * 29.5);
                         currProd.price = rulePriceBusmarket(rows[i]['_cells'][3]['_value']['value']);
                     } else{
                         currProd.price = 0;
@@ -57,7 +58,7 @@ module.exports = (res) => {
         return () => {
             return new Promise((result, erorr) =>{
                 var connection = manage.createConnection();
-                var SQLquery = "UPDATE products SET price =" + dataPrice.price +" , update_time = "+ updateTime + ", provider_num = " + numProvider + ", quantity=9 WHERE vendor='" + dataPrice.vendor + "'";
+                var SQLquery = "UPDATE products SET price =" + dataPrice.price + " , purchase_price=" + dataPrice.purchase_price + " , update_time = "+ updateTime + ", provider_num = " + numProvider + ", quantity=9 WHERE vendor='" + dataPrice.vendor + "'";
                 connection.query(SQLquery, (err, rows, fields) => {
                     if (err) {
                         erorr(err);
@@ -216,6 +217,7 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][4] != undefined && rows[i]['_cells'][4]['_value']['value'] != null){
                             currProd.price = rulePriceMaslotochka(rows[i]['_cells'][4]['_value']['value']);
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][4]['_value']['value']);
                         } else{
                             currProd.price = 0;
                         }
@@ -267,6 +269,7 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][6] != undefined && rows[i]['_cells'][6]['_value']['value'] != null){
                             currProd.price = rulePriceOmega(+rows[i]['_cells'][6]['_value']['value'].toString().replace(',', '.'));
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][6]['_value']['value'].toString().replace(',', '.'));
                         } else{
                             currProd.price = 0;
                         }
@@ -303,6 +306,7 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][4] != undefined && rows[i]['_cells'][4]['_value']['value'] != null){
                             currProd.price = +rows[i]['_cells'][4]['_value']['value'].toString().replace(',', '.');
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][7]['_value']['value'].toString().replace(',', '.'));
                         } else{
                             currProd.price = 0;
                         }
@@ -332,6 +336,7 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][5] != undefined && rows[i]['_cells'][5]['_value']['value'] != null){
                             currProd.price = rulePriceASG(+rows[i]['_cells'][5]['_value']['value'].toString().replace(',', '.'));
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][5]['_value']['value'].toString().replace(',', '.'))
                         } else{
                             currProd.price = 0;
                         }
@@ -361,6 +366,7 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][6] != undefined && rows[i]['_cells'][6]['_value']['value'] != null){
                             currProd.price = +rows[i]['_cells'][6]['_value']['value'].toString().replace(',', '.');
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][6]['_value']['value'].toString().replace(',', '.')*0.8);
                         } else{
                             currProd.price = 0;
                         }
@@ -390,11 +396,12 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][2] != undefined && rows[i]['_cells'][2]['_value']['value'] != null){
                             currProd.price = +rows[i]['_cells'][2]['_value']['value'].toString().replace(',', '.');
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][3]['_value']['value'].toString().replace(',', '.'))
                         } else{
                             currProd.price = 0;
                         }
-                        if (rows[i]['_cells'][3] != undefined && rows[i]['_cells'][3]['_value']['value'] != null){
-                            if(!+rows[i]['_cells'][3]['_value']['value']){
+                        if (rows[i]['_cells'][4] != undefined && rows[i]['_cells'][4]['_value']['value'] != null){
+                            if(!+rows[i]['_cells'][4]['_value']['value']){
                                 continue;
                             }
                         } else{
