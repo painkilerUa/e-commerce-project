@@ -7,69 +7,109 @@ html
             .w1
                 include ../main/header.pug
                 main.wrap-avtomobilnye-masla-catalog
-                    h1 Антифризы
+                    h1= seo.h1
                     .wrap-filter-avtomobilnye-masla
                         h3 Параметры товара
                         aside.filter-avtomobilnye-masla
-                            form(id='filter-avtomobilnye-masla', action='./filter')
-                                span Производитель
-                                -for(var i = 0; i < filter.attr_manufacturer.length; i++){
-                                    .row-avtomobilnye-masla-filter
-                                        input(
-                                            type='checkbox'
-                                            id= 'attr_manufacturer_' + i
-                                            name='attr_manufacturer'
-                                            value= filter.attr_manufacturer[i].name
-                                            class='checkbox-avtomobilnye-masla'
-                                            checked=filter.attr_manufacturer[i].checked
-                                            )
-                                        label(for= 'attr_manufacturer_' + i)= filter.attr_manufacturer[i].name
+                            .wrap-attr-oil-filter
+                                -var count = 0;
+                                -for(var key in selectedAttr) {
+                                    -if(count == 0){
+                                        .row-clear-oil-filter
+                                            a(
+                                            class='clear-product-filter'
+                                            rel="nofollow"
+                                            href='/catalog/antifreeze/'
+                                            ) убрать все фильтры
+                                    -}
+                                    -count++
                                 -}
-                                span Класс антифриза
-                                -for(var i = 0; i < filter.attr_antifreeze_class.length; i++){
-                                    .row-avtomobilnye-masla-filter
-                                        input(
-                                            type='checkbox'
-                                            id= 'attr_antifreeze_class_' + i
-                                            name='attr_antifreeze_class'
-                                            value= filter.attr_antifreeze_class[i].name
-                                            class='checkbox-avtomobilnye-masla'
-                                            checked=filter.attr_antifreeze_class[i].checked
-                                        )
-                                        label(for= 'attr_antifreeze_class_' + i)= filter.attr_antifreeze_class[i].name
+                                -if(filterElements.attr_manufacturer){
+                                    span Производитель
+                                    -for(var i = 0; i < filterElements.attr_manufacturer.length; i++){
+                                        -for(var key in filterElements.attr_manufacturer[i]){
+                                            .row-attr-products-filter
+                                                input(
+                                                    type='checkbox',
+                                                    checked= filterElements.attr_manufacturer[i]['isChecked']
+                                                )
+                                                a(
+                                                    class='link-avtomobilnye-masla'
+                                                    data-href= key
+                                                    data-checked= filterElements.attr_manufacturer[i]['isChecked']
+                                                    rel="nofollow"
+                                                    href='/'
+                                                )= filterElements.attr_manufacturer[i][key]
+                                            -break;
+                                        -}
+                                    -}
                                 -}
-                                span Цвет антифриза
-                                -for(var i = 0; i < filter.attr_color.length; i++){
-                                    .row-avtomobilnye-masla-filter
-                                        input(
-                                            type='checkbox'
-                                            id= 'attr_color_' + i
-                                            name='attr_color'
-                                            value= filter.attr_color[i].name
-                                            class='checkbox-avtomobilnye-masla'
-                                            checked=filter.attr_color[i].checked
-                                        )
-                                        label(for= 'attr_color_' + i)= filter.attr_color[i].name
+                                -if(filterElements.attr_antifreeze_class){
+                                    span Класс антифриза
+                                    -for(var i = 0; i < filterElements.attr_antifreeze_class.length; i++){
+                                        -for(var key in filterElements.attr_antifreeze_class[i]){
+                                            .row-attr-products-filter
+                                                input(
+                                                    type='checkbox',
+                                                    checked= filterElements.attr_antifreeze_class[i]['isChecked']
+                                                )
+                                                a(
+                                                    class='link-avtomobilnye-masla'
+                                                    data-href= key
+                                                    data-checked= filterElements.attr_antifreeze_class[i]['isChecked']
+                                                    rel="nofollow"
+                                                    href='/'
+                                                )= filterElements.attr_antifreeze_class[i][key]
+                                            -break;
+                                        -}
+                                    -}
                                 -}
-                                span Емкость, л
-                                -for(var i = 0; i < filter.attr_capacity.length; i++){
-                                    .row-avtomobilnye-masla-filter
-                                        input(
-                                            type='checkbox'
-                                            id= 'attr_capacity_' + i
-                                            name='attr_capacity'
-                                            value= filter.attr_capacity[i].name
-                                            class='checkbox-avtomobilnye-masla'
-                                            checked=filter.attr_capacity[i].checked
-                                        )
-                                        label(for= 'attr_capacity_' + i)= filter.attr_capacity[i].name
+                                -if(filterElements.attr_color){
+                                    span Цвет антифриза
+                                    -for(var i = 0; i < filterElements.attr_color.length; i++){
+                                        -for(var key in filterElements.attr_color[i]){
+                                            .row-attr-products-filter
+                                                input(
+                                                    type='checkbox',
+                                                    checked= filterElements.attr_color[i]['isChecked']
+                                                )
+                                                a(
+                                                    class='link-avtomobilnye-masla'
+                                                    data-href= key
+                                                    data-checked= filterElements.attr_color[i]['isChecked']
+                                                    rel="nofollow"
+                                                    href='/'
+                                                )= filterElements.attr_color[i][key]
+                                            -break;
+                                        -}
+                                    -}
+                                -}
+                                -if(filterElements.attr_capacity){
+                                    span Емкость, л
+                                    -for(var i = 0; i < filterElements.attr_capacity.length; i++){
+                                        -for(var key in filterElements.attr_capacity[i]){
+                                            .row-attr-products-filter
+                                                input(
+                                                    type='checkbox',
+                                                    checked= filterElements.attr_capacity[i]['isChecked']
+                                                )
+                                                a(
+                                                    class='link-avtomobilnye-masla'
+                                                    data-href= key
+                                                    data-checked= filterElements.attr_capacity[i]['isChecked']
+                                                    rel="nofollow"
+                                                    href='/'
+                                                )= filterElements.attr_capacity[i][key]
+                                            -break;
+                                        -}
+                                    -}
                                 -}
                     .wrap-avtomobilnye-masla-products-list
                         div(class='avtomobilnye-masla-products-list clearfix')
                             -for(var i = 0; i < products.length; i++){
                                 div(class='avtomobilnye-masla-product clearfix')
                                     .wrap-avtomobilnye-masla-product-image
-                                        a(href= products[i].product_url)
+                                        a(href= '/products/' + products[i].product_url)
                                             img(src= products[i].img_url)
                                     .wrap-desc-avtomobilnye-masla
                                         h2
@@ -81,19 +121,23 @@ html
                                             data-product-id= JSON.stringify(products[i])
                                         ) Купить 
                             -}
-                        -if(pagesPaginator.numPages > 1){
+                        -if(pagesPaginator.length > 0){
                             .avtomobilnye-masla-catalog-pages-paginator
                                 span Страницы:
                                 ul
-                                    -for(var i = 1; i < pagesPaginator.numPages + 1; i++){
-                                        -if(pagesPaginator.activePage == i){
+                                    -for(var i = 0; i < pagesPaginator.length; i++){
+                                        -if(pagesPaginator[i]['isActive']){
                                             li(class='selected')
-                                                a(href= '?page=' + i)= i
-                                        -} else{
+                                                a(href= pagesPaginator[i]['href'])= pagesPaginator[i]['name']
+                                        -}else{
                                             li
-                                                a(href= '?page=' + i)= i
+                                                a(href= pagesPaginator[i]['href'])= pagesPaginator[i]['name']
                                         -}
                                     -}
+                        -}
+                    .wrap-description-category-part
+                        -if(seo.text){
+                            p= seo.text
                         -}
             include ../main/footer.pug
         script(type='text/javascript', src='/static/js/catalog.js')

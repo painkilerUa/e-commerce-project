@@ -1,0 +1,19 @@
+[
+  {
+    "url": "/antifreeze/",
+    "main_text": {
+      "h1": "Масляные фильтры",
+      "title": "Масляные фильтры"
+    },
+    "sub_category":
+    [
+      {
+        "param": "bosch",
+        "data": {
+          "h1": "Масляные фильтры Bosch",
+          "title": "Масляные фильтры Bosch"
+        }
+      }
+    ]
+  }
+]

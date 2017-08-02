@@ -5,7 +5,7 @@ const _mysql = require('../../manageSQL.js'),
 
 module.exports = (req, res) => {
     let getAttrJSON = new Promise((resolve, reject) =>{
-        fs.readFile('./data/filter/antifreeze_attr.json', (err, data) =>{
+        fs.readFile('./data/filter/washerliquid_attr.json', (err, data) =>{
             if (err){
                 reject(err);
             }
@@ -13,7 +13,7 @@ module.exports = (req, res) => {
         });
     });
     let getProducts = new Promise((resolve, reject) => {
-        let SQLquery = 'SELECT id, name, short_description, description, price, purchase_price, product_url, img_url, quantity, vendor, category_id, attr_manufacturer, attr_color, attr_antifreeze_class, attr_capacity, provider_num FROM products WHERE category_id = 2 and quantity > 0';
+        let SQLquery = 'SELECT id, name, short_description, description, price, purchase_price, product_url, img_url, quantity, vendor, category_id, attr_manufacturer, attr_capacity, provider_num FROM products WHERE category_id = 3 and quantity > 0';
         _mysql(SQLquery, (err, rows) => {
             if(err){
                 reject(err);
@@ -23,7 +23,7 @@ module.exports = (req, res) => {
         })
     });
     let getAttr = new Promise((resolve, reject) => {
-        let SQLquery = 'SELECT attr_manufacturer, attr_capacity, attr_color, attr_antifreeze_class FROM products WHERE category_id = 2 and quantity > 0';
+        let SQLquery = 'SELECT attr_manufacturer, attr_capacity FROM products WHERE category_id = 3 and quantity > 0';
         _mysql(SQLquery, (err, rows) => {
             if(err){
                 reject(err);
@@ -35,31 +35,22 @@ module.exports = (req, res) => {
 
     Promise.all([getProducts, getAttr, getAttrJSON]).then(
         resolve => {
-            var filterBaseState = {
+            let filterBaseState = {
                 attr_manufacturer : [],
-                attr_antifreeze_class : [],
-                attr_color : [],
                 attr_capacity : []
             };
-            for(var i = 0; i < resolve[1].length; i++){
-                var currentProd = resolve[1][i];
+            for(let i = 0; i < resolve[1].length; i++){
+                let currentProd = resolve[1][i];
 
                 if(filterBaseState.attr_manufacturer.indexOf(currentProd.attr_manufacturer) == -1){
                     filterBaseState.attr_manufacturer.push(currentProd.attr_manufacturer)
                 }
-                if(filterBaseState.attr_antifreeze_class.indexOf(currentProd.attr_antifreeze_class) == -1){
-                    filterBaseState.attr_antifreeze_class.push(currentProd.attr_antifreeze_class)
-                }
-                if(filterBaseState.attr_color.indexOf(currentProd.attr_color) == -1){
-                    filterBaseState.attr_color.push(currentProd.attr_color)
-                }
+
                 if(filterBaseState.attr_capacity.indexOf(currentProd.attr_capacity) == -1){
                     filterBaseState.attr_capacity.push(currentProd.attr_capacity)
                 }
             }
             filterBaseState.attr_manufacturer.sort();
-            filterBaseState.attr_antifreeze_class.sort();
-            filterBaseState.attr_color.sort();
             filterBaseState.attr_capacity.sort((a, b) => {return a - b});
 
             let filterElements = {};
@@ -91,7 +82,7 @@ module.exports = (req, res) => {
                 let numPages = Math.ceil(resolve[0].length / 20);
                 pagesPaginator.push({
                     'name' : '<< В начало',
-                    'href' : '/catalog/antifreeze/' + '?page=1',
+                    'href' : '/catalog/washerliquid/' + '?page=1',
                     isActive : false
                 })
                 if(req.query.page) {
@@ -107,13 +98,13 @@ module.exports = (req, res) => {
                             if(startPage == req.query.page){
                                 pagesPaginator.push({
                                     'name' : startPage,
-                                    'href' : '/catalog/antifreeze/' + '?page=' + startPage,
+                                    'href' : '/catalog/washerliquid/' + '?page=' + startPage,
                                     isActive : true
                                 })
                             } else{
                                 pagesPaginator.push({
                                     'name' : startPage,
-                                    'href' : '/catalog/antifreeze/'+ '?page=' + startPage,
+                                    'href' : '/catalog/washerliquid/'+ '?page=' + startPage,
                                     isActive : false
                                 })
                             }
@@ -124,14 +115,14 @@ module.exports = (req, res) => {
                 }else{
                     pagesPaginator.push({
                         'name' : 1,
-                        'href' : '/catalog/antifreeze/' + '?page=1',
+                        'href' : '/catalog/washerliquid/' + '?page=1',
                         isActive : true
                     })
                     if(numPages > 6){
                         for(let i = 2; i < 8; i++){
                             pagesPaginator.push({
                                 'name' : i,
-                                'href' : '/catalog/antifreeze/' + '?page=' + i,
+                                'href' : '/catalog/washerliquid/' + '?page=' + i,
                                 isActive : false
                             })
                         }
@@ -139,7 +130,7 @@ module.exports = (req, res) => {
                         for(let i = 2; i < numPages + 1; i++){
                             pagesPaginator.push({
                                 'name' : i,
-                                'href' : '/catalog/antifreeze/' + '?page=' + i,
+                                'href' : '/catalog/washerliquid/' + '?page=' + i,
                                 isActive : false
                             })
                         }
@@ -147,7 +138,7 @@ module.exports = (req, res) => {
                 }
                 pagesPaginator.push({
                     'name' : 'В конец >>',
-                    'href' : '/catalog/antifreeze/'+ '?page=' + numPages,
+                    'href' : '/catalog/washerliquid/'+ '?page=' + numPages,
                     isActive : false
                 })
             }
@@ -160,8 +151,8 @@ module.exports = (req, res) => {
 
 // SEO
             let seo = {};
-            seo.h1 = "Автомобильные антифризы";
-            seo.title = "Магазин МКПП | Автомобильные антифризы";
+            seo.h1 = "Автомобильные омыватели";
+            seo.title = "Магазин МКПП | Автомобильные омыватели";
             seo.text = "";
             res.render('catalog/antifreeze_products_list.pug',{title: seo.title, products : products, filterElements : filterElements, selectedAttr : {}, pagesPaginator : pagesPaginator, seo : seo});
         },

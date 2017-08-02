@@ -9,10 +9,10 @@ var main = require('./main'),
     simple_products_list_filtered = require ('./simple_products_list_filtered'),
     getAutoMasla = require ('./catalog_auto_masla'),
     getAutoMaslaFilter = require ('./catalog_auto_masla_filter'),
-    getAntifreeze = require ('./catalog_antifreeze'),
-    getAntifreezeFilter = require('./catalog_antifreeze_filter'),
-    getWasherliquid = require('./catalog_washerliquid'),
-    getWasherliquideFilter = require('./catalog_washerliquid_filter'),
+    getAntifreeze = require ('./catalog/catalog-antifreeze'),
+    getAntifreezeFilter = require('./catalog/catalog-antifreeze-filter'),
+    getWasherliquid = require('./catalog/catalog-washerliquid'),
+    getWasherliquideFilter = require('./catalog/catalog-washerliquid-filter'),
     getMaslyaniiFiltr = require('./catalog/maintenance/catalog-maslyanii-filter'),
     getMaslyaniiFiltrFilter = require('./catalog/maintenance/catalog-maslyanii-filter-filter'),
     getVozdyshniiFiltr = require('./catalog/maintenance/catalog-vozdyshnii-filter'),
@@ -103,9 +103,9 @@ module.exports = function (app) {
     app.get('/catalog/avtomobilnye-masla', getAutoMasla);
     app.get('/catalog/avtomobilnye-masla/:auto_oil_url', getAutoMaslaFilter);
     app.get('/catalog/antifreeze/', getAntifreeze);
-    app.get('/catalog/antifreeze/filter', getAntifreezeFilter);
+    app.get('/catalog/antifreeze/:sub_url', getAntifreezeFilter);
     app.get('/catalog/washerliquid/', getWasherliquid);
-    app.get('/catalog/washerliquid/filter', getWasherliquideFilter);
+    app.get('/catalog/washerliquid/:sub_url', getWasherliquideFilter);
     app.get('/catalog/maslyanii-filtr/', getMaslyaniiFiltr);
     app.get('/catalog/maslyanii-filtr/:manufacturers_url', getMaslyaniiFiltrFilter);
     app.get('/catalog/vozdyshnii-filtr/', getVozdyshniiFiltr);
