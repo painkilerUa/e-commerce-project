@@ -4,7 +4,6 @@ const manage = require('../manage.js'),
     log = require('../utils/log');
 
 module.exports = (res) => {
-
 // let test = (res) => {
     let date = new Date();
     let updateTime = date.getTime();
@@ -28,7 +27,7 @@ module.exports = (res) => {
     })
     const getDataFromExelPriceBusmakret = new Promise((resolve, reject) =>{
         const workbook = new Excel.Workbook();
-        workbook.xlsx.readFile('./prices/busmarket.xlsx').then(
+        workbook.xlsx.readFile('./update_price/prices/busmarket.xlsx').then(
             data => {
                 let importProducts = [];
                 let rows = data['_worksheets'][1]['_rows'];
@@ -118,7 +117,7 @@ module.exports = (res) => {
                                                                                                 resolve => {
                                                                                                     Promise.all([getProductsFromDB(), getDataFromExelPriceMkpp()]).then(
                                                                                                         resolve => {
-                                                                                                            compareProductsHighestRights(resolve[0], resolve[1], 7).then(
+                                                                                                          compareProductsHighestRights(resolve[0], resolve[1], 7).then(
                                                                                                                 resolve =>{
                                                                                                                     switchOfUnchangedProducts().then(
                                                                                                                         resolve => {
@@ -204,7 +203,7 @@ module.exports = (res) => {
     function getDataFromExelPriceMaslotochka(){
         return new Promise((resolve, reject) =>{
             var workbook = new Excel.Workbook();
-            workbook.xlsx.readFile('./update_price/prices/MasloTochka_price.xlsx').then(
+            workbook.xlsx.readFile('./update_price/prices/maslotochka.xlsx').then(
                 (data) => {
                     var importProducts = [];
                     var rows = data['_worksheets'][1]['_rows'];
@@ -293,7 +292,7 @@ module.exports = (res) => {
     function getDataFromExelPriceLiquiMoly(){
         return new Promise((resolve, reject) => {
             var workbook = new Excel.Workbook();
-            workbook.xlsx.readFile('./update_price/prices/18743.xlsx').then(
+            workbook.xlsx.readFile('./update_price/prices/kaminion.xlsx').then(
                 (data) => {
                     var importProducts = [];
                     var rows = data['_worksheets'][1]['_rows'];
@@ -353,7 +352,7 @@ module.exports = (res) => {
     function getDataFromExelPriceMotul(){
         return new Promise((resolve, reject) => {
             var workbook = new Excel.Workbook();
-            workbook.xlsx.readFile('./prices/motul.xlsx').then(
+            workbook.xlsx.readFile('./update_price/prices/vladislav.xlsx').then(
                 (data) => {
                     var importProducts = [];
                     var rows = data['_worksheets'][1]['_rows'];
@@ -421,7 +420,7 @@ module.exports = (res) => {
     function changeUpdateTime(){
         return new Promise((resolve, reject) =>{
             var connection = manage.createConnection();
-            var SQLquery = "UPDATE general_information SET last_update_products = NOW() WHERE id=3";
+            var SQLquery = "UPDATE general_information SET last_update_price = 1, time = NOW() WHERE id=1";
             connection.query(SQLquery, function(err, rows, fields) {
                 if (err) {
                     reject(err);
