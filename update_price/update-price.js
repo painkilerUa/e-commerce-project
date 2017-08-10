@@ -5,6 +5,7 @@ const manage = require('../manage.js'),
 
 module.exports = (res) => {
 // let test = (res) => {
+    res.send({type: 'process_started', text: 'Updating price has been started'})
     let date = new Date();
     let updateTime = date.getTime();
     let productsVendors;
@@ -33,14 +34,14 @@ module.exports = (res) => {
                 let rows = data['_worksheets'][1]['_rows'];
                 for(let i = 1; i < rows.length; i++){
                     let currProd = {};
-                    if (rows[i]['_cells'][0] != undefined && rows[i]['_cells'][1]['_value']['value'] != null){
-                        currProd.vendor = rows[i]['_cells'][0]['_value']['value'].replace(/\s/g, '').toLowerCase();
+                    if (rows[i]['_cells'][1] != undefined && rows[i]['_cells'][1]['_value']['value'] != null){
+                        currProd.vendor = rows[i]['_cells'][1]['_value']['value'].replace(/\s/g, '').toLowerCase();
                     } else{
                         continue;
                     }
-                    if (rows[i]['_cells'][3] != undefined && rows[i]['_cells'][3]['_value']['value'] != null){
-                        currProd.purchase_price = Math.ceil(+rows[i]['_cells'][3]['_value']['value'] * 29.5);
-                        currProd.price = rulePriceBusmarket(rows[i]['_cells'][3]['_value']['value']);
+                    if (rows[i]['_cells'][4] != undefined && rows[i]['_cells'][4]['_value']['value'] != null){
+                        currProd.purchase_price = Math.ceil(+rows[i]['_cells'][4]['_value']['value'] * 29.5);
+                        currProd.price = rulePriceBusmarket(rows[i]['_cells'][4]['_value']['value']);
                     } else{
                         currProd.price = 0;
                     }
@@ -62,9 +63,10 @@ module.exports = (res) => {
                     if (err) {
                         erorr(err);
                         connection.end();
+                    }else{
+                        connection.end();
+                        result(rows);
                     }
-                    connection.end();
-                    result(rows);
                 });
             })
         }
@@ -123,7 +125,6 @@ module.exports = (res) => {
                                                                                                                         resolve => {
                                                                                                                             changeUpdateTime().then(
                                                                                                                                 resolve => {
-                                                                                                                                    res.send({type: 'up_time', time: new Date()})
                                                                                                                                 },
                                                                                                                                 reject => {
                                                                                                                                     log.info('some errors in changeUpdateTime function update-price.js ' + reject);
@@ -209,19 +210,19 @@ module.exports = (res) => {
                     var rows = data['_worksheets'][1]['_rows'];
                     for(var i = 1; i < rows.length; i++){
                         var currProd = {};
-                        if (rows[i]['_cells'][0] != undefined && rows[i]['_cells'][1]['_value']['value'] != null){
-                            currProd.vendor = rows[i]['_cells'][0]['_value']['value'].toString().replace(/\s/g, '').toLowerCase();
+                        if (rows[i]['_cells'][1] != undefined && rows[i]['_cells'][1]['_value']['value'] != null){
+                            currProd.vendor = rows[i]['_cells'][1]['_value']['value'].toString().replace(/\s/g, '').toLowerCase();
                         } else{
                             continue;
                         }
-                        if (rows[i]['_cells'][4] != undefined && rows[i]['_cells'][4]['_value']['value'] != null){
-                            currProd.price = rulePriceMaslotochka(rows[i]['_cells'][4]['_value']['value']);
-                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][4]['_value']['value']);
+                        if (rows[i]['_cells'][5] != undefined && rows[i]['_cells'][5]['_value']['value'] != null){
+                            currProd.price = rulePriceMaslotochka(rows[i]['_cells'][5]['_value']['value']);
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][5]['_value']['value']);
                         } else{
                             currProd.price = 0;
                         }
-                        if (rows[i]['_cells'][5] != undefined && rows[i]['_cells'][5]['_value']['value'] != null){
-                            if(!+rows[i]['_cells'][5]['_value']['value'].toString().replace(/\D+/g,"")){
+                        if (rows[i]['_cells'][6] != undefined && rows[i]['_cells'][6]['_value']['value'] != null){
+                            if(!+rows[i]['_cells'][6]['_value']['value'].toString().replace(/\D+/g,"")){
                                 continue;
                             }
                         } else{
