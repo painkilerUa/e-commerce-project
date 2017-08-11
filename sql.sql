@@ -87,7 +87,7 @@ CREATE TABLE products (
   short_description TEXT NOT NULL,
   description TEXT NOT NULL,
   price FLOAT (8,2) UNSIGNED NOT NULL,
-  purchase_price FLOAT (8,2) UNSIGNED NOT NULL,
+  purchase_price FLOAT (8,2) UNSIGNED,
   status BIT NOT NULL DEFAULT 1,
   meta_title VARCHAR(255) DEFAULT NULL,
   product_url VARCHAR(255) NOT NULL DEFAULT '',
