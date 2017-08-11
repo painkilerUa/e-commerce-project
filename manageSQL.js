@@ -30,4 +30,5 @@ module.exports = (sql, values, next) => {
         }
         next.apply(this, arguments);
     });
+    connection.end();
 };
