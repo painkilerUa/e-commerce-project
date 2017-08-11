@@ -4,8 +4,8 @@ const manage = require('../manage.js'),
     log = require('../utils/log');
 
 module.exports = (res) => {
-
 // let test = (res) => {
+    res.send({type: 'process_started', text: 'Updating price has been started'})
     let date = new Date();
     let updateTime = date.getTime();
     let productsVendors;
@@ -28,19 +28,20 @@ module.exports = (res) => {
     })
     const getDataFromExelPriceBusmakret = new Promise((resolve, reject) =>{
         const workbook = new Excel.Workbook();
-        workbook.xlsx.readFile('./prices/busmarket.xlsx').then(
+        workbook.xlsx.readFile('./update_price/prices/busmarket.xlsx').then(
             data => {
                 let importProducts = [];
                 let rows = data['_worksheets'][1]['_rows'];
                 for(let i = 1; i < rows.length; i++){
                     let currProd = {};
-                    if (rows[i]['_cells'][0] != undefined && rows[i]['_cells'][1]['_value']['value'] != null){
-                        currProd.vendor = rows[i]['_cells'][0]['_value']['value'].replace(/\s/g, '').toLowerCase();
+                    if (rows[i]['_cells'][1] != undefined && rows[i]['_cells'][1]['_value']['value'] != null){
+                        currProd.vendor = rows[i]['_cells'][1]['_value']['value'].replace(/\s/g, '').toLowerCase();
                     } else{
                         continue;
                     }
-                    if (rows[i]['_cells'][3] != undefined && rows[i]['_cells'][3]['_value']['value'] != null){
-                        currProd.price = rulePriceBusmarket(rows[i]['_cells'][3]['_value']['value']);
+                    if (rows[i]['_cells'][4] != undefined && rows[i]['_cells'][4]['_value']['value'] != null){
+                        currProd.purchase_price = Math.ceil(+rows[i]['_cells'][4]['_value']['value'] * 29.5);
+                        currProd.price = rulePriceBusmarket(rows[i]['_cells'][4]['_value']['value']);
                     } else{
                         currProd.price = 0;
                     }
@@ -57,14 +58,15 @@ module.exports = (res) => {
         return () => {
             return new Promise((result, erorr) =>{
                 var connection = manage.createConnection();
-                var SQLquery = "UPDATE products SET price =" + dataPrice.price +" , update_time = "+ updateTime + ", provider_num = " + numProvider + ", quantity=9 WHERE vendor='" + dataPrice.vendor + "'";
+                var SQLquery = "UPDATE products SET price =" + dataPrice.price + " , purchase_price=" + dataPrice.purchase_price + " , update_time = "+ updateTime + ", provider_num = " + numProvider + ", quantity=9 WHERE vendor='" + dataPrice.vendor + "'";
                 connection.query(SQLquery, (err, rows, fields) => {
                     if (err) {
                         erorr(err);
                         connection.end();
+                    }else{
+                        connection.end();
+                        result(rows);
                     }
-                    connection.end();
-                    result(rows);
                 });
             })
         }
@@ -117,13 +119,12 @@ module.exports = (res) => {
                                                                                                 resolve => {
                                                                                                     Promise.all([getProductsFromDB(), getDataFromExelPriceMkpp()]).then(
                                                                                                         resolve => {
-                                                                                                            compareProductsHighestRights(resolve[0], resolve[1], 7).then(
+                                                                                                          compareProductsHighestRights(resolve[0], resolve[1], 7).then(
                                                                                                                 resolve =>{
                                                                                                                     switchOfUnchangedProducts().then(
                                                                                                                         resolve => {
                                                                                                                             changeUpdateTime().then(
                                                                                                                                 resolve => {
-                                                                                                                                    res.send({type: 'up_time', time: new Date()})
                                                                                                                                 },
                                                                                                                                 reject => {
                                                                                                                                     log.info('some errors in changeUpdateTime function update-price.js ' + reject);
@@ -203,24 +204,25 @@ module.exports = (res) => {
     function getDataFromExelPriceMaslotochka(){
         return new Promise((resolve, reject) =>{
             var workbook = new Excel.Workbook();
-            workbook.xlsx.readFile('./update_price/prices/MasloTochka_price.xlsx').then(
+            workbook.xlsx.readFile('./update_price/prices/maslotochka.xlsx').then(
                 (data) => {
                     var importProducts = [];
                     var rows = data['_worksheets'][1]['_rows'];
                     for(var i = 1; i < rows.length; i++){
                         var currProd = {};
-                        if (rows[i]['_cells'][0] != undefined && rows[i]['_cells'][1]['_value']['value'] != null){
-                            currProd.vendor = rows[i]['_cells'][0]['_value']['value'].toString().replace(/\s/g, '').toLowerCase();
+                        if (rows[i]['_cells'][1] != undefined && rows[i]['_cells'][1]['_value']['value'] != null){
+                            currProd.vendor = rows[i]['_cells'][1]['_value']['value'].toString().replace(/\s/g, '').toLowerCase();
                         } else{
                             continue;
                         }
-                        if (rows[i]['_cells'][4] != undefined && rows[i]['_cells'][4]['_value']['value'] != null){
-                            currProd.price = rulePriceMaslotochka(rows[i]['_cells'][4]['_value']['value']);
+                        if (rows[i]['_cells'][5] != undefined && rows[i]['_cells'][5]['_value']['value'] != null){
+                            currProd.price = rulePriceMaslotochka(rows[i]['_cells'][5]['_value']['value']);
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][5]['_value']['value']);
                         } else{
                             currProd.price = 0;
                         }
-                        if (rows[i]['_cells'][5] != undefined && rows[i]['_cells'][5]['_value']['value'] != null){
-                            if(!+rows[i]['_cells'][5]['_value']['value'].toString().replace(/\D+/g,"")){
+                        if (rows[i]['_cells'][6] != undefined && rows[i]['_cells'][6]['_value']['value'] != null){
+                            if(!+rows[i]['_cells'][6]['_value']['value'].toString().replace(/\D+/g,"")){
                                 continue;
                             }
                         } else{
@@ -267,6 +269,7 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][6] != undefined && rows[i]['_cells'][6]['_value']['value'] != null){
                             currProd.price = rulePriceOmega(+rows[i]['_cells'][6]['_value']['value'].toString().replace(',', '.'));
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][6]['_value']['value'].toString().replace(',', '.'));
                         } else{
                             currProd.price = 0;
                         }
@@ -290,7 +293,7 @@ module.exports = (res) => {
     function getDataFromExelPriceLiquiMoly(){
         return new Promise((resolve, reject) => {
             var workbook = new Excel.Workbook();
-            workbook.xlsx.readFile('./update_price/prices/18743.xlsx').then(
+            workbook.xlsx.readFile('./update_price/prices/kaminion.xlsx').then(
                 (data) => {
                     var importProducts = [];
                     var rows = data['_worksheets'][1]['_rows'];
@@ -303,6 +306,7 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][4] != undefined && rows[i]['_cells'][4]['_value']['value'] != null){
                             currProd.price = +rows[i]['_cells'][4]['_value']['value'].toString().replace(',', '.');
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][7]['_value']['value'].toString().replace(',', '.'));
                         } else{
                             currProd.price = 0;
                         }
@@ -332,6 +336,7 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][5] != undefined && rows[i]['_cells'][5]['_value']['value'] != null){
                             currProd.price = rulePriceASG(+rows[i]['_cells'][5]['_value']['value'].toString().replace(',', '.'));
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][5]['_value']['value'].toString().replace(',', '.'))
                         } else{
                             currProd.price = 0;
                         }
@@ -348,7 +353,7 @@ module.exports = (res) => {
     function getDataFromExelPriceMotul(){
         return new Promise((resolve, reject) => {
             var workbook = new Excel.Workbook();
-            workbook.xlsx.readFile('./prices/motul.xlsx').then(
+            workbook.xlsx.readFile('./update_price/prices/vladislav.xlsx').then(
                 (data) => {
                     var importProducts = [];
                     var rows = data['_worksheets'][1]['_rows'];
@@ -361,6 +366,7 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][6] != undefined && rows[i]['_cells'][6]['_value']['value'] != null){
                             currProd.price = +rows[i]['_cells'][6]['_value']['value'].toString().replace(',', '.');
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][6]['_value']['value'].toString().replace(',', '.')*0.8);
                         } else{
                             currProd.price = 0;
                         }
@@ -390,11 +396,12 @@ module.exports = (res) => {
                         }
                         if (rows[i]['_cells'][2] != undefined && rows[i]['_cells'][2]['_value']['value'] != null){
                             currProd.price = +rows[i]['_cells'][2]['_value']['value'].toString().replace(',', '.');
+                            currProd.purchase_price = Math.ceil(+rows[i]['_cells'][3]['_value']['value'].toString().replace(',', '.'))
                         } else{
                             currProd.price = 0;
                         }
-                        if (rows[i]['_cells'][3] != undefined && rows[i]['_cells'][3]['_value']['value'] != null){
-                            if(!+rows[i]['_cells'][3]['_value']['value']){
+                        if (rows[i]['_cells'][4] != undefined && rows[i]['_cells'][4]['_value']['value'] != null){
+                            if(!+rows[i]['_cells'][4]['_value']['value']){
                                 continue;
                             }
                         } else{
@@ -414,7 +421,7 @@ module.exports = (res) => {
     function changeUpdateTime(){
         return new Promise((resolve, reject) =>{
             var connection = manage.createConnection();
-            var SQLquery = "UPDATE general_information SET last_update_products = NOW() WHERE id=3";
+            var SQLquery = "UPDATE general_information SET last_update_price = 1, time = NOW() WHERE id=1";
             connection.query(SQLquery, function(err, rows, fields) {
                 if (err) {
                     reject(err);

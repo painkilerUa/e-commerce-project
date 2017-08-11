@@ -68,6 +68,16 @@ INSERT INTO authorization (login, hash, role) VALUES ('insolent', '14bc3c2f3e325
 //ignat93
 //9379992
 
+CREATE TABLE general_information(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    last_update_price TINYINT(1),
+    time DATETIME,
+    PRIMARY KEY(id)
+);
+
+INSERT INTO general_information (last_update_price, time) VALUES (1, NOW());
+INSERT INTO general_information (time) VALUES (NOW());
+
 
 
 CREATE DATABASE test CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -77,8 +87,8 @@ CREATE TABLE products (
   name VARCHAR(255) NOT NULL,
   short_description TEXT NOT NULL,
   description TEXT NOT NULL,
-  price FLOAT (7,2) UNSIGNED NOT NULL,
-  purchase_price FLOAT (6,2) UNSIGNED NOT NULL,
+  price FLOAT (8,2) UNSIGNED NOT NULL,
+  purchase_price FLOAT (8,2) UNSIGNED NOT NULL,
   status BIT NOT NULL DEFAULT 1,
   meta_title VARCHAR(255) DEFAULT NULL,
   product_url VARCHAR(255) NOT NULL DEFAULT '',
@@ -156,6 +166,19 @@ CREATE TABLE orders (
     comment TEXT NOT NULL,
     CONSTRAINT pkId PRIMARY KEY (id)
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 INSERT INTO products (provider_num, attr_color, short_description, quantity, meta_title, attr_manufacturer, description, img_url, category_id, attr_sae, attr_capacity, vendor, attr_antifreeze_class, name, attr_vid, purchase_price, price, update_time, status, attr_type, product_url) VALUES ('2', '', '', '0', '', '', '', '', 0, '', '', 'ssss45', '', 'Шестеренка задней полуоси', '', '100', '149', '', '0', '', 'ssss45');

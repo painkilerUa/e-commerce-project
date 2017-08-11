@@ -200,6 +200,7 @@
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-02T11:51:48.320Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-02T12:56:20.800Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-02T13:21:41.342Z"}
+<<<<<<< HEAD
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T08:51:11.860Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T08:58:22.013Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T09:50:12.267Z"}
@@ -282,3 +283,62 @@
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T12:46:00.052Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T12:48:23.267Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T12:49:37.560Z"}
+=======
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-02T21:47:32.683Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-07T20:36:20.443Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T20:15:36.092Z"}
+{"level":"info","message":"Error in process getting data about last prices updateError: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1","timestamp":"2017-08-08T20:54:59.729Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T21:10:16.978Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T21:34:26.324Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T21:37:03.392Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T21:37:29.692Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T21:42:56.403Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T21:46:14.413Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T21:46:45.585Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T21:49:24.555Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T21:49:59.890Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T21:57:41.506Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T22:05:58.406Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T22:07:48.293Z"}
+{"level":"info","message":"some errors in proces reading exel file maslotochka or from DB Error: File not found: ../../../update_price/update_price/prices/maslotochka.xlsx","timestamp":"2017-08-08T22:08:07.558Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T22:09:22.541Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T22:15:49.298Z"}
+{"level":"info","message":"some errors in proces udate price Omegautopostavka update-price.js Error: connect ETIMEDOUT","timestamp":"2017-08-08T22:22:08.919Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-08T22:23:50.034Z"}
+{"level":"info","message":"some errors in proces udate price Omegautopostavka update-price.js Error: connect ETIMEDOUT","timestamp":"2017-08-08T22:27:10.847Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T20:42:23.303Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T20:50:10.221Z"}
+{"level":"info","message":"some errors in proces udate price Omegautopostavka update-price.js Error: read ECONNRESET","timestamp":"2017-08-09T20:54:02.839Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T21:03:20.413Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T21:05:59.015Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T22:23:23.550Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T22:26:40.921Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T22:27:52.858Z"}
+{"level":"info","message":"some errors in proces udate price maslotochka update-price.js Error: connect ETIMEDOUT","timestamp":"2017-08-09T22:31:06.349Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T22:32:37.179Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T22:45:09.783Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T22:49:19.470Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T22:52:18.543Z"}
+{"level":"info","message":"some errors in proces udate price maslotochka update-price.js Error: ER_WARN_DATA_OUT_OF_RANGE: Out of range value for column 'purchase_price' at row 1","timestamp":"2017-08-09T22:53:31.637Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-09T23:08:28.459Z"}
+{"level":"info","message":"some errors in proces udate price maslotochka update-price.js Error: ER_WARN_DATA_OUT_OF_RANGE: Out of range value for column 'purchase_price' at row 1","timestamp":"2017-08-09T23:09:04.861Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T22:07:09.661Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T22:08:25.097Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T22:19:13.111Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T22:26:32.884Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T22:37:05.921Z"}
+{"level":"info","message":"[MYSQL] Error connecting to mysql:Error: ER_CON_COUNT_ERROR: Too many connections","timestamp":"2017-08-10T22:37:39.984Z"}
+{"level":"info","message":"some errors in proces udate price busmarket update-price.js Error: ER_CON_COUNT_ERROR: Too many connections","timestamp":"2017-08-10T22:37:39.992Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T22:45:11.535Z"}
+{"level":"info","message":"[MYSQL] Error connecting to mysql:Error: ER_CON_COUNT_ERROR: Too many connections","timestamp":"2017-08-10T22:45:47.670Z"}
+{"level":"info","message":"some errors in proces udate price busmarket update-price.js Error: ER_CON_COUNT_ERROR: Too many connections","timestamp":"2017-08-10T22:45:47.679Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T22:49:21.316Z"}
+{"level":"info","message":"[MYSQL] Error connecting to mysql:Error: ER_CON_COUNT_ERROR: Too many connections","timestamp":"2017-08-10T22:50:00.247Z"}
+{"level":"info","message":"some errors in proces udate price busmarket update-price.js Error: ER_CON_COUNT_ERROR: Too many connections","timestamp":"2017-08-10T22:50:00.256Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T22:51:10.595Z"}
+{"level":"info","message":"some errors in proces udate price Omegautopostavka update-price.js Error: connect ETIMEDOUT","timestamp":"2017-08-10T23:05:33.187Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T23:14:18.211Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T23:32:31.841Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T23:42:38.178Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-10T23:43:51.971Z"}
+>>>>>>> 76a2126bfc3bbcf2124ea22e4a4f01cb30baa646

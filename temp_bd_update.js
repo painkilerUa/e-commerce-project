@@ -11,7 +11,7 @@ var manage = require('./manage.js'),
             database : 'mkpp_update'
             });
 
-        var SQLquery = "SELECT * FROM products WHERE category_id = 2";
+        var SQLquery = "SELECT * FROM products WHERE category_id = 3";
         connection.connect();
         connection.query(SQLquery, function(err, rows, fields) {
             if (err) {
@@ -91,6 +91,27 @@ var manage = require('./manage.js'),
 //                    'PARTS MALL': 'partsmall',
 //                    'CTR': 'ctr'
 //                }
+
+                // var changes = {
+                //     'ALASKA' : 'alaska',
+                //     'HEPU' : 'hepu',
+                //
+                // }
+                // var changes = {
+                //     'G12' : 'g12',
+                //     'G11' : 'g11',
+                //
+                // }
+                // var changes = {
+                //     'Зеленый' : 'green',
+                //     'Красный' : 'red',
+                //     'Лиловый' : 'violet'
+                //
+                // }
+                var changes = {
+                    'CAR TECH' : 'cartech',
+                    'PLASTPIL' : 'plastpil'
+                }
 
 // query for motor oil queryArr.push("UPDATE products SET attr_type='" + changes[result[i]['attr_type']] + "', attr_manufacturer='" + changes[result[i]['attr_manufacturer']] + "', attr_vid='"+ changes[result[i]['attr_vid']] + "', attr_sae= '" + changes[result[i]['attr_sae']] + "' WHERE id=" + result[i]['id']);
 // query for oil filter queryArr.push("UPDATE products SET attr_manufacturer='" + changes[result[i]['attr_manufacturer']] + "' WHERE id=" + result[i]['id']);

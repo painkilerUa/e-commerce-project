@@ -10,7 +10,7 @@ module.exports = function(req, res){
         res.status(401).send('Insufficient rights for this action')
         return
     }
-    if(req.files.length){
+    if(req.files && req.files.length){
         let savePriceFileChain = Promise.resolve();
         for (let price of req.files) {
             savePriceFileChain = savePriceFileChain.then(addPriceFilePromise(price));
@@ -24,14 +24,15 @@ module.exports = function(req, res){
 
         function addPriceFilePromise(price){
             return new Promise((resolve, reject) => {
-                let filePath = './update_price/prices/' + price.fieldname;
+                let filePath = './update_price/prices/' + price.originalname;
                 fs.writeFile(filePath, price.buffer, (err) => {
                     if (err) reject(err);
                     resolve('The file has been saved!');
                 });
             })
         }
+    }else {
+        updatePrice(res);
     }
-    updatePrice(res);
 }
 

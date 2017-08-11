@@ -4,7 +4,7 @@ const log = require('../../../utils/log');
 
 module.exports = (req, res) => {
     new Promise((resolve, reject) => {
-        let SQLquery = "SELECT * FROM"
+        let SQLquery = "SELECT time FROM general_information WHERE id=1"
         _mysql(SQLquery, (err, rows) => {
             if(err){
                 reject(err);
