@@ -8,3 +8,10 @@
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-11T12:35:51.221Z"}
 {"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-11T12:37:51.512Z"}
 {"level":"info","message":"Error in process getting data about last prices updateError: ER_NO_SUCH_TABLE: Table 'example_mk.general_information' doesn't exist","timestamp":"2017-08-11T12:38:21.444Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-11T12:48:57.849Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-11T12:56:07.674Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-11T12:57:15.179Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-11T12:57:37.697Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-11T12:58:25.208Z"}
+{"level":"info","message":"Express server listening on port 3001","timestamp":"2017-08-11T13:06:06.414Z"}
+{"level":"info","message":"Error in process getting data about last prices updateError: ER_NO_SUCH_TABLE: Table 'example_mk.general_information' doesn't exist","timestamp":"2017-08-11T13:07:13.976Z"}
