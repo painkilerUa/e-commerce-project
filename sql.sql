@@ -16,6 +16,7 @@ customer_del_name ENUM('new_post', 'intime', 'delivery') DEFAULT NULL,
 customer_del_depart_num INT(3) DEFAULT NULL,
 customer_local_address VARCHAR(255) DEFAULT NULL,
 customer_comment TEXT DEFAULT NULL,
+customer_created_at DATETIME DEFAULT NOW(),
 PRIMARY KEY(id),
 UNIQUE (customer_main_phone)
 );

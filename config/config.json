@@ -3,14 +3,16 @@
     "file_log": "utils/report.log",
     "publick_dir":"publick",
     "db_host":"localhost",
-    "db_port":"3307",
+    "db_port":"3311",
     "db_user":"root",
-    "db_password":"timeismoney",
+    "db_password":"",
     "db_name":"example_mk",
     "admin_url": "xoxo",
     "admin_spa_url": "slavery",
     "secret_string": "We are slaves of our wishes",
     "jwt_secret": "We are slaves of our wishes",
     "jwt_audience": "nodejs-jwt",
-    "jwt_issuer": "https://"
+    "jwt_issuer": "https://",
+    "amazon": "ec2-52-91-71-246.compute-1.amazonaws.com"
 }
+

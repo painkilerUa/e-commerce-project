@@ -30,7 +30,8 @@ module.exports = function(req, res, next){
                     id_token: createIdToken({
                         login: login
                     }),
-                    access_token: createAccessToken(results[0].role)
+                    access_token: createAccessToken(results[0].role),
+                    role: results[0].role
                 })
             }else{
                 res.status(401).send('Incorrect password')
