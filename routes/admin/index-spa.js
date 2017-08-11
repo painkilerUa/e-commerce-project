@@ -7,6 +7,7 @@ module.exports = function(req, res, next){
             res.status(501).send('Error 501')
             console.log(err)
         }
+//        res.setHeader('content-type', 'text/html');
         res.end(data)
     });
 }

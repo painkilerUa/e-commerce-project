@@ -16,7 +16,7 @@ module.exports = function(req, res){
                 " customer_email, customer_city, customer_del_name, customer_del_depart_num, customer_local_address, customer_comment," +
                 "order_detail.id AS detail_order_row_id, detail_order_id, detail_product_id, detail_sell_price, detail_bought_price, detail_quantity," +
                 "products.id as product_id, name " +
-                "FROM orders INNER JOIN order_detail ON orders.id = detail_order_id INNER JOIN products ON order_detail.detail_product_id = products.id INNER JOIN customers ON orders.order_user_id = customers.id ORDER BY orders.id"
+                "FROM orders INNER JOIN order_detail ON orders.id = detail_order_id INNER JOIN products ON order_detail.detail_product_id = products.id INNER JOIN customers ON orders.order_user_id = customers.id ORDER BY orders.id DESC"
             _mysql(SQLquery, (err, rows) => {
                 if(err){
                     reject(err);
