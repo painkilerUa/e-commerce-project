@@ -1,6 +1,6 @@
 [
     {"attr_manufacturer" : [{"hepu" : "HEPU"}, {"alaska" : "АЛЯСКА"}, {"bmw" : "BMW"}, {"elf" : "ELF"}, {"ford" : "FORD"}, {"fuchs" : "FUCHS TITAN"}, {"gm" : "GM"}, {"lm" : "LIQUI MOLY"}, {"mazda" : "MAZDA"}, {"mb" : "MERCEDES-BENZ"}, {"mobil" : "MOBIL"}, {"mobis" : "MOBIS"}, {"nissan" : "NISSAN"}, {"subaru" : "SUBARU"}, {"total" : "TOTAL"}, {"toyota" : "TOYOTA"}, {"vag" : "VAG"}, {"zic" : "ZIC"}]},
-    {"attr_color" : [{"red" : "Красный"}, {"green": "Зеленый"}, {"violet": "Лиловый"}]},
+    {"attr_color" : [{"red" : "Красный"}, {"green": "Зеленый"}, {"violet": "Лиловый"}, {"blue": "Синий"}]},
     {"attr_antifreeze_class" : [{"g12" : "G12"}, {"g12+" : "G12+"}, {"g11" : "G11"}]},
     {"attr_capacity" : [{"1" : "1"}, {"1.5" : "1.5"}, {"5" : "5"}, {"10" : "10"}, {"20" : "20"}, {"55" : "55"}, {"60" : "60"}, {"200" : "200"}, {"208" : "208"}]}
 ]

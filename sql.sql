@@ -1,4 +1,4 @@
-CREATE DATABASE example_mk CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE mkpp_new CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 
