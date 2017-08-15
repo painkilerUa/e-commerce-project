@@ -1,4 +1,4 @@
-CREATE DATABASE mkpp_new CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE mkpp CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 
@@ -16,7 +16,7 @@ customer_del_name ENUM('new_post', 'intime', 'delivery') DEFAULT NULL,
 customer_del_depart_num INT(3) DEFAULT NULL,
 customer_local_address VARCHAR(255) DEFAULT NULL,
 customer_comment TEXT DEFAULT NULL,
-customer_created_at DATETIME DEFAULT NOW(),
+customer_created_at DATETIME DEFAULT NULL,
 PRIMARY KEY(id),
 UNIQUE (customer_main_phone)
 );
@@ -87,8 +87,8 @@ CREATE TABLE products (
   name VARCHAR(255) NOT NULL,
   short_description TEXT NOT NULL,
   description TEXT NOT NULL,
-  price FLOAT (8,2) UNSIGNED NOT NULL,
-  purchase_price FLOAT (8,2) UNSIGNED,
+  price DECIMAL(10,2) UNSIGNED NOT NULL,
+  purchase_price DECIMAL(10,2) UNSIGNED,
   status BIT NOT NULL DEFAULT 1,
   meta_title VARCHAR(255) DEFAULT NULL,
   product_url VARCHAR(255) NOT NULL DEFAULT '',
@@ -174,9 +174,7 @@ CREATE TABLE orders (
 
 
 
-
-
-
+UPDATE products SET price =27069, purchase_price=25064, update_time = 1502782402975, provider_num = 2, quantity=9 WHERE vendor='83212405100'
 
 
 

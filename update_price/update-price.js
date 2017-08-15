@@ -58,7 +58,7 @@ module.exports = (res) => {
         return () => {
             return new Promise((result, erorr) =>{
                 var connection = manage.createConnection();
-                var SQLquery = "UPDATE products SET price =" + dataPrice.price + " , purchase_price=" + dataPrice.purchase_price + " , update_time = "+ updateTime + ", provider_num = " + numProvider + ", quantity=9 WHERE vendor='" + dataPrice.vendor + "'";
+                var SQLquery = "UPDATE products SET price =" + dataPrice.price + ", purchase_price=" + dataPrice.purchase_price + ", update_time = "+ updateTime + ", provider_num = " + numProvider + ", quantity=9 WHERE vendor='" + dataPrice.vendor + "'";
                 connection.query(SQLquery, (err, rows, fields) => {
                     if (err) {
                         erorr(err);
