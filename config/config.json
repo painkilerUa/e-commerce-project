@@ -5,14 +5,13 @@
     "db_host":"localhost",
     "db_port":"3306",
     "db_user":"root",
-    "db_password":"time-ismoney",
-    "db_name":"mkpp",
+    "db_password":"",
+    "db_name":"",
     "admin_url": "xoxo",
     "admin_spa_url": "slavery",
     "secret_string": "We are slaves of our wishes",
     "jwt_secret": "We are slaves of our wishes",
     "jwt_audience": "nodejs-jwt",
-    "jwt_issuer": "https://",
-    "amazon": "ec2-52-91-71-246.compute-1.amazonaws.com"
+    "jwt_issuer": "https://"
 }
 
